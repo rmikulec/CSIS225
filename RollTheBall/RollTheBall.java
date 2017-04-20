@@ -51,8 +51,8 @@ public class RollTheBall extends JApplet implements MouseListener
             levels[i] = new Level("./levels/"+surFiles[i]);
         }
 
-        currentLevel = levels[0].getGrid();
-        int[] temp = levels[0].getSize();
+        currentLevel = levels[1].getGrid();
+        int[] temp = levels[1].getSize();
         ROWS = temp[0];
         COLS = temp[1];
         TILE_SIZE = HEIGHT/(ROWS);
