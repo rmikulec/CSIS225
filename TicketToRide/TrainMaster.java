@@ -7,6 +7,8 @@ import java.awt.*;
 import java.io.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 /**
  * This Class will handle most of the GUI for Ticket to Ride
  * 
@@ -32,15 +34,36 @@ public class TrainMaster extends JFrame implements MouseListener
     private JPasswordField passwordField;
     private boolean gameStarted;
     private boolean gameEnded;
+    private GraphicsDevice vc;
     /**
      * The constructor for the Train Master class will set up all of the GUI stuff 
      * that needs to be handled in the game during the beginning of the game
      */
     public TrainMaster()
     {
-        // adds the title to the window 
-        super("Ticket to Ride");
 
+        
+        //////////////Handles the FullScreen enivronment//////////////////////////
+        super();
+        GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        vc= e.getDefaultScreenDevice();
+
+        JButton b = new JButton("exit");
+        b.addActionListener(
+            new ActionListener(){
+                public void actionPerformed(ActionEvent arg0) { 
+                    dispose();
+                    System.exit(0);
+
+                }
+            }
+        );
+        this.setLayout(new FlowLayout());
+        this.add(b);
+        setFullScreen(this);
+        ///////////////////////////////////////////////////////////////////////////
+        
+        
         // set the layout of the frame
         setLayout(new FlowLayout() );
 
@@ -71,8 +94,6 @@ public class TrainMaster extends JFrame implements MouseListener
 
         // create the button for the instructions
         b1 = new JButton("How to Play");
-        
-        
 
         // create the button for playing the game
         b2 = new JButton("Play Game");
@@ -131,6 +152,15 @@ public class TrainMaster extends JFrame implements MouseListener
         item2.addActionListener(handler);
 
     }
+    
+     public void setFullScreen(JFrame f){
+
+     f.setUndecorated(true);
+     f.setResizable(false);
+     vc.setFullScreenWindow(f);
+
+
+ }
 
     /**
      * Returns the nmber of players that will be playing this game of Ticket to Ride 
@@ -143,7 +173,6 @@ public class TrainMaster extends JFrame implements MouseListener
         return numPlayers;
 
     }
-    
 
     public boolean gameStarted()
     {
