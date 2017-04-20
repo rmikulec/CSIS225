@@ -1,6 +1,6 @@
 4
 4
-RD V N LU
-Vs LD LS LD
-V N N Vs
-UE RUM H LUs
+DS LD RE LD
+N V LDs Vs
+V N RD LU
+RUs RUM LU LU

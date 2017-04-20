@@ -1,8 +1,0 @@
-6
-6
-N LD V V RD N
-N B LS RE B N
-V B B B B V
-H N RU LU N H
-LU N RD LD N LU
-H B V V B H

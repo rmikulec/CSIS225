@@ -2,5 +2,5 @@
 4
 DS N RD LE
 RU H N B
-LD V LUs B
-N RU N B
+LD Vs LUs B
+N RUs N B
