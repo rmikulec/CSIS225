@@ -1,0 +1,50 @@
+Syracuse  Allentown  8
+Baltimore Philadelphia  4
+Philadelphia  Atlantic_City 2 
+Towanda  Landcaster  9
+Wheeling  Allentown 15
+Baltimore  New_York 10
+Harrisburg Philadelphia 6 
+Ontario Syracuse 10 
+S/W  A_Town - 3
+Morgantown to Chamburg 7 
+Pits to Balt 13 
+Rochester to Reading 13 
+Pits to Phili 15 
+Buffalo to Harrisburg 13 
+Lewiston to Syracuse 9
+Morgantown to Williamsport 13 
+Oil city to Johnstown 6
+Pits to Harrisburg 9
+Pits to New York 20 
+Altoona to Binghamton 9 
+Dubois to Cumberland 6 
+Ontario to Warren 5 
+Erie to Albany 20 
+Harrisburg to NY 11
+Ontario to Pits 10
+Rochester to Elmira 3 
+Phil to NY 6 
+Warren York 10 
+Williamsport  Albany 10 
+Cambersburg  Scarton/Wilxbury 8 
+Coudersport to Binghamton 7 
+NY to Atlantic city 6
+oil city to scranton 14 
+Baltimore to Albany 16 
+Youngstown to morantwon 7 
+pits to buffalo 10 
+Gettysburg to reading 3 
+Buffalo to NY 18 
+Buffalo to Johnstown 10 
+Buffalo to Phili 19 
+Buffalo to Baltimore 16
+Erie to Altuna 8 
+Johnstown to Elmira 10 
+Wheeling Albany 22 
+Youngstown scranton 17 
+Youngstown rochester 14 
+Wheeling eerie 9
+Dobou Stroudsburg 12 
+Harrisburg Baltimore 
+Cumberland Harrisburg 4

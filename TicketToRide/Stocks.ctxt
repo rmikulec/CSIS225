@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.params=type\ numCardsIn\ name\ numWinnersIn
+comment0.target=Stocks(CardTypes,\ int,\ java.lang.String,\ int)
+numComments=1

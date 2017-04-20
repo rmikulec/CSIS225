@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=cityOne\ cityTwo\ colorIn\ lengthIn\ numLocomotives\ stocks
+comment0.target=Track(City,\ City,\ java.awt.Color,\ int,\ int,\ java.util.ArrayList)
+comment1.params=
+comment1.target=City\ getCity1()
+comment2.params=
+comment2.target=City\ getCity2()
+comment3.params=taken
+comment3.target=void\ setTaken(boolean)
+comment4.params=
+comment4.target=boolean\ hasStock()
+numComments=5

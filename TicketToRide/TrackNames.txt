@@ -1,0 +1,96 @@
+Ontario, Erie, gray, 3, 2*
+Ontario, Erie, gray, 3, 2*
+Ontario, Buffalo, 1, 1*
+Ontario, Buffalo, 1, 1*
+Buffalo, Coudersport, gray, 4
+Warren, Coudersport, gray, 4
+Dubois, Altoona, gray, 2
+Lewiston, Harrisburg, gray, 2
+Harrisburg, Lancaster, gray, 2
+Harrisburg, Lancaster, gray, 2
+Gettysburg, York, gray, 1
+Philadelphia, Atlantic City, gray, 2
+Philadelphia, Atlantic City, gray, 2
+Philadelphia, New York, gray, 6
+Philadelphia, New York, gray, 6
+Johnstown, Cumberland, gray, 3
+Harrisburg, Scranton/Wilkes Barre, gray, 6
+Towanda, Scranton/Wilkes Barre, gray, 3
+Erie, Buffalo, white, 5
+Elmira, Binghamton, white, 3
+Syracuse, Albany, white, 6
+Youngstown, Oil City, white, 3
+Wheeling, Pittsburg, white, 2
+Dubois, Williamsport, white, 6
+York, Baltimore, white, 2
+Scranton/Wilkes Barre, Allentown, white, 3
+Syracuse, Albany, red, 6
+Scranton/Wilkes Barre, New York, red, 5
+Allentown, Philadelphia, red, 3
+Gettysburg, Baltimore, red, 3
+Altoona, Harrisburg, red, 5
+Morgantown, Cumberland, red, 5
+Oil City, Pittsburg, red, 4
+Towanda, Binghamton, red, 2
+Rochester, Syracuse, blue, 4
+Albany, New York, blue, 6
+Scranton/Wilkes Barre, Allentown, blue, 3
+Cumberland, Baltimore, blue, 7
+Wheeling, Morgantown, blue, 3
+Chambersburg, Harrisburg, blue, 2
+Youngstown, Pittsburg, blue, 4
+Erie, Warren, blue, 3
+Johnstown, Altoona, blue, 1
+Buffalo, Rochester, black, 5
+Elmira, Syracuse, black, 4
+Warren, Dubois, black, 3
+Erie, Oil City, black, 3
+Pittsburg, Johnstown, black, 4
+Chambersburg, Gettysburg, black, 1
+Harrisburg, York, black, 1
+Allentown, Philadelphia, black, 3
+New York, Atlantic City, black, 6
+Binghamton, Scranton/Wilkes Barre, black, 3
+Williamsport, Towanda, black 2
+Buffalo, Warren, green, 4
+Erie, Youngstown, green, 4
+Wheeling, Pittsburg, green, 2
+Cumberland, Chambersburg, green, 2
+Lancaster, Philadelphia, green, 4
+Reading, Allentown, green, 2
+Coudersport, Williamsport, green, 4
+Altoona, Lewiston, green, 2
+Albany, New York, green, 6
+Binghamton, Scranton/Wilkes Barre, green, 3
+Rochester, Elmira, green, 3
+Buffalo, Rochester, yellow, 5
+Erie, Youngstown, yellow, 4
+Harrisburg, Gettysburg, yellow, 2
+Baltimore, Philadelphia, yellow, 4
+Scranton/Wilkes Barre, Stroudsburg, yellow, 2
+Lewiston, Williamsport, yellow, 3
+Elmira, Towanda, yellow, 2
+Altoona, Johnstown, yellow, 1
+Pittsburg, Morgantown, yellow, 3
+Reading, Lancaster, yellow, 1
+Syracuse, Binghamton, yellow, 2
+Erie, Buffalo, orange, 5
+Oil City, Warren, orange, 2
+Coudersport, Elmira, orange, 4
+Syracuse, Binghamton, orange, 2
+Williamsport, Scranton/Wilkes Barre, orange, 5
+Altoona, Harrisburg, orange, 5
+Lancaster, Philadelphia, orange, 4
+Youngstown, Pittsburg, orange, 4
+Allentown, Stroudsburg, orange, 2
+Albany, Binghamton, pink, 6
+Reading, Harrisburg, pink, 2
+Pittsburg, Altoona, pink, 4
+Youngstown, Wheeling, pink, 5
+Oil City, Dubois, pink, 3
+York, Lancaster, pink, 1
+Baltimore, Philadelphia, pink, 4
+Rochester, Syracuse, pink, 4
+Scranton/Wilkes Barre, New York, pink, 5
+
+
