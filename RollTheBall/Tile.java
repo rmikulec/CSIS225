@@ -75,11 +75,7 @@ public class Tile
         return Move;
     }
     
-    public void setVisitState(boolean a){
-        visited = a;
-    }
-    
-    public boolean isVisited(){
-        return visited;
+    public boolean isStar(){
+        return hasStar;
     }
 }

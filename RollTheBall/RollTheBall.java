@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.io.File;
 import java.lang.Math;
 import java.util.*;
+
 /**
  * RollTheBall simulates the app Roll the Ball with similar functionality
  * 
@@ -20,6 +21,7 @@ public class RollTheBall extends JApplet implements MouseListener
     protected int ROWS = 4;//number of rows in the board
     protected int COLS = 4;//number of cols in the board
     protected Tile[][] currentLevel;
+    protected int currentLevelInt;
     protected int starCount;
     protected boolean currentLevel_beat = false;
     protected int x1;//the x coordinate for the first click
@@ -51,8 +53,9 @@ public class RollTheBall extends JApplet implements MouseListener
             levels[i] = new Level("./levels/"+surFiles[i]);
         }
 
-        currentLevel = levels[1].getGrid();
-        int[] temp = levels[1].getSize();
+        currentLevelInt = 0;
+        currentLevel = levels[currentLevelInt].getGrid();
+        int[] temp = levels[currentLevelInt].getSize();
         ROWS = temp[0];
         COLS = temp[1];
         TILE_SIZE = HEIGHT/(ROWS);
@@ -109,6 +112,20 @@ public class RollTheBall extends JApplet implements MouseListener
             firstClick=true;
             path = pathFound();
             repaint();
+            if(path){
+                String Message = "You beat the level with " +starCount+" stars! Would you like to continue?";
+                int reply = JOptionPane.showConfirmDialog(null, Message, "",JOptionPane.YES_NO_OPTION );
+                if (reply == JOptionPane.YES_OPTION)
+                {
+                    currentLevelInt++;
+                    currentLevel = levels[currentLevelInt].getGrid();
+                    int[] temp = levels[currentLevelInt].getSize();
+                    ROWS = temp[0];
+                    COLS = temp[1];
+                    TILE_SIZE = HEIGHT/(ROWS);
+                }
+                repaint();
+            }
             e.consume();
         }
     }
@@ -185,6 +202,8 @@ public class RollTheBall extends JApplet implements MouseListener
 
         while(!currentLevel[r][c].isEnd)
         {
+            if(currentLevel[r][c].isStar())starCount++;
+
             if(currentLevel[r][c].getShape().equals(TileShape.N))return false;
 
             if(currentLevel[r][c].getShape().equals(TileShape.B))return false;
