@@ -35,6 +35,8 @@ public class TrainMaster extends JFrame implements MouseListener
     private boolean gameStarted;
     private boolean gameEnded;
     private GraphicsDevice vc;
+    private int screenWidth;
+    private int screenHeight;
     /**
      * The constructor for the Train Master class will set up all of the GUI stuff 
      * that needs to be handled in the game during the beginning of the game
@@ -42,7 +44,6 @@ public class TrainMaster extends JFrame implements MouseListener
     public TrainMaster()
     {
 
-        
         //////////////Handles the FullScreen enivronment//////////////////////////
         super();
         GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -62,8 +63,13 @@ public class TrainMaster extends JFrame implements MouseListener
         this.add(b);
         setFullScreen(this);
         ///////////////////////////////////////////////////////////////////////////
-        
-        
+
+        //////////////////////Obtain Resolution of Screen//////////////////////////
+        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        screenWidth = gd.getDisplayMode().getWidth();
+        screenHeight = gd.getDisplayMode().getHeight();
+        ///////////////////////////////////////////////////////////////////////////
+
         // set the layout of the frame
         setLayout(new FlowLayout() );
 
@@ -79,7 +85,7 @@ public class TrainMaster extends JFrame implements MouseListener
         item2.setBounds(200, 5, 280, 50);
 
         // label for the main menu
-        JLabel label = new JLabel(new ImageIcon("Images/rsz_mainmenu.jpg") );
+        JLabel label = new JLabel(new ImageIcon("Images/rsz_mainmenu.jpg"), JLabel.CENTER);
         JLabel instructions = new JLabel(new ImageIcon("Images/instructions-2.jpg") );
         ImageIcon picture = new ImageIcon("Images/ticket6.jpg");
         Image resizedImage = getScaledImage(picture.getImage(), 620, 841); 
@@ -152,15 +158,14 @@ public class TrainMaster extends JFrame implements MouseListener
         item2.addActionListener(handler);
 
     }
-    
-     public void setFullScreen(JFrame f){
 
-     f.setUndecorated(true);
-     f.setResizable(false);
-     vc.setFullScreenWindow(f);
+    public void setFullScreen(JFrame f){
 
+        f.setUndecorated(true);
+        f.setResizable(false);
+        vc.setFullScreenWindow(f);
 
- }
+    }
 
     /**
      * Returns the nmber of players that will be playing this game of Ticket to Ride 
