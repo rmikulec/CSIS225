@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Tile()
+comment0.text=\r\n\ Constructor\ that\ takes\ no\ arguments\ and\ sets\ all\r\n\ variables\ to\ false\ with\ the\ blank\ tile\ shape\r\n
+comment1.params=start\ end\ move\ star\ shapeIn
+comment1.target=Tile(boolean,\ boolean,\ boolean,\ boolean,\ TileShape)
+comment1.text=\r\n\ Constructor\ which\ takes\ input\ parameters\ to\ initialize\ instance\ variables\r\n\ \r\n\ @param\ start\ an\ indicator\ whether\ or\ not\ this\ tile\ is\ a\ start\ tile\r\n\ @param\ end\ an\ indicator\ whether\ or\ not\ this\ tile\ is\ a\ end\ tile\r\n\ @param\ right\ whether\ or\ not\ the\ tile\ can\ move\ right\r\n\ @param\ left\ whether\ or\ not\ the\ tile\ can\ move\ left\r\n\ @param\ up\ whether\ or\ not\ the\ tile\ can\ move\ up\r\n\ @param\ down\ whether\ or\ not\ the\ tile\ can\ move\ down\r\n\ @param\ star\ whether\ or\ not\ the\ tile\ contains\ a\ star\r\n\ @param\ shapeIn\ the\ shape\ for\ this\ tile\ object\ to\ be\r\n\ \r\n
+comment2.params=
+comment2.target=TileShape\ getShape()
+comment3.params=
+comment3.target=boolean\ isTrack()
+comment4.params=
+comment4.target=boolean\ canMove()
+comment5.params=a
+comment5.target=void\ setVisitState(boolean)
+comment6.params=
+comment6.target=boolean\ isVisited()
+numComments=7
