@@ -53,13 +53,25 @@ public class Tile
         shape = shapeIn;
     }
 
-     
+    /**
+     * Method used to get the shape of a tile object
+     * 
+     * @return the tile's shape
+     */
     public TileShape getShape()
     {
         return shape;
     }
 
-    public boolean isTrack(){
+    /**
+     * Method to denote which pieces can be used as
+     * part of the path from start to end.
+     * 
+     * @return true if tile has a shape other than N or B
+     * false otherwise
+     */
+    public boolean isTrack()
+    {
         if(shape.equals(TileShape.LU)||shape.equals(TileShape.RU)||shape.equals(TileShape.LD)||
         shape.equals(TileShape.RD)||shape.equals(TileShape.H)||shape.equals(TileShape.V))
         {
@@ -71,10 +83,25 @@ public class Tile
         }
     }
 
-    public boolean canMove(){
+    /**
+     * Method to return whether or not a piece can move
+     * 
+     * @return Move, a variable which each tile has that is
+     * specified in the constructor. True if the piece can 
+     * move, false if the piece is a start/end or stationary.
+     */
+    public boolean canMove()
+    {
         return Move;
     }
-    
+
+    /**
+     * Method to determine if a tile object has a star
+     * 
+     * @return hasStar, the variable each tile has which
+     * refers to whether or not there is a star. True if
+     * there is, false otherwise.
+     */
     public boolean isStar(){
         return hasStar;
     }

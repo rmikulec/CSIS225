@@ -1,10 +1,14 @@
 #BlueJ class context
 comment0.params=input
 comment0.target=Level(java.lang.String)
+comment0.text=\r\n\ Constrictor\ which\ takes\ a\ String\ input\ file\ name\r\n\ \r\n\ @param\ input\ the\ file\ name\ to\ be\ used\ to\ create\ level\r\n
 comment1.params=
 comment1.target=Tile[][]\ getGrid()
+comment1.text=\r\n\ Getter\ method\ used\ to\ get\ a\ reference\ to\ the\ grid\r\n\ \r\n\ @return\ the\ game\ board\ 2d\ array\r\n
 comment2.params=
 comment2.target=void\ displayGrid()
+comment2.text=\r\n\ Method\ used\ to\ display\ the\ game\ board\ for\ testing\ purposes\r\n
 comment3.params=
 comment3.target=int[]\ getSize()
+comment3.text=\r\n\ Method\ used\ to\ get\ the\ grid\ dimensions\r\n\ \r\n\ @return\ the\ int\ array\ of\ size\ two\ with\ the\ rows\ and\ cols\r\n\ being\ the\ only\ values\r\n
 numComments=4
