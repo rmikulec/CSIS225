@@ -1,4 +1,4 @@
 #BlueJ class context
-comment0.params=type\ loc1in\ loc2in\ complete\ valueIn
-comment0.target=DestinationTickets(CardTypes,\ City,\ City,\ boolean,\ int)
+comment0.params=type\ loc1in\ loc2in\ valueIn\ picIn
+comment0.target=DestinationTickets(CardTypes,\ City,\ City,\ int,\ javax.swing.ImageIcon)
 numComments=1

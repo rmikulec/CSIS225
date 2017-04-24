@@ -9,13 +9,15 @@ import java.awt.image.BufferedImage;
 import java.awt.event.*;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.util.*;
+
 /**
  * This Class will handle most of the GUI for Ticket to Ride
  * 
  * @author Matthew MacFadyen 
  * @version April 18th, 2017
  */
-public class TrainMaster extends JFrame implements MouseListener  
+public class TrainMaster extends JFrame implements MouseListener
 {
     private JPanel menu;
     private JPanel rules;
@@ -37,6 +39,11 @@ public class TrainMaster extends JFrame implements MouseListener
     private GraphicsDevice vc;
     private int screenWidth;
     private int screenHeight;
+    private Stack<TrainTickets> trainDeck;
+    private Stack<TrainTickets> trainDiscard;
+    private ArrayList<DestinationTickets> destDeck;
+    
+    
     /**
      * The constructor for the Train Master class will set up all of the GUI stuff 
      * that needs to be handled in the game during the beginning of the game
@@ -157,6 +164,134 @@ public class TrainMaster extends JFrame implements MouseListener
         b5.addActionListener(handler);
         item2.addActionListener(handler);
 
+    }
+    
+    public void setup(int numPlayers) 
+    {
+        if(numPlayers < 2 || numPlayers > 5)
+        {
+            //error
+        }
+        City Ontario = new City("Ontario");
+        City Buffalo = new City("Buffalo");
+        City Rochester = new City("Rochester");
+        City Syracuse = new City("Syracuse");
+        City Albany = new City("Albany");
+        City Erie = new City("Erie");
+        City Warren = new City("Warren");
+        City Coudersport = new City("Coudersport");
+        City Towanda = new City("Towanda");
+        City Binghamton = new City("Binghamton");
+        City Youngstown = new City("Youngstown");
+        City OilCity = new City("Oil City");
+        City Dubois = new City("Dubois");
+        City Williamsport = new City("Williamsport");
+        City ScrantonWilkesBarre = new City("Scranton/Wilkes Barre");
+        City NewYork = new City("New York");
+        City Pittsburg = new City("Pittsburg");
+        City Altoona = new City("Altoona");
+        City Lewiston = new City("Lewiston");
+        City Harrisburg = new City("Harrisburg");
+        City Reading = new City("Reading");
+        City Allentown = new City("Allentown");
+        City Stroudsburg = new City("Stroudsburg");
+        City AtlanticCity = new City("Atlantic City");
+        City Philadelphia = new City("Philadelphia");
+        City Elmira = new City("Elmira");
+        City York = new City("York");
+        City Baltimore = new City("Baltimore");
+        City Gettysburg = new City("Gettysburg");
+        City Chambersburg = new City("Chambersburg");
+        City Cumberland = new City("Cumberland");
+        City Morgantown = new City("Morgantown");
+        City Wheeling = new City("Wheeling");
+        City Johnstown = new City("Johnstown");
+        City Landcaster = new City("Landcaster");
+        if(numPlayers == 2)
+        {
+            //rules for 2 players
+        }
+        else
+        {
+            //rules for 3-5 players
+            trainDeck = new Stack<TrainTickets>();
+            for(int i = 0; i < 12; i++)
+            {
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "black", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors007")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "blue", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors003")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "pink", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors002")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "red", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors009")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "yellow", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors004")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "orange", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors006")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "green", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors008")));
+                trainDeck.push(new TrainTickets(CardTypes.TRAIN, "white", false, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors005")));
+                if(i == 0)//locomotives
+                {
+                    for(int j = 0; j < 20; j++)
+                    {
+                        trainDeck.push(new TrainTickets(CardTypes.TRAIN, "", true, new ImageIcon(".\\Images\\Pics\\TrainColors\\TrainColors001")));
+                    }
+                }
+            }
+            Collections.shuffle(trainDeck);
+            trainDiscard = new Stack<TrainTickets>();
+            //ronald to fix images
+            destDeck = new ArrayList<DestinationTickets>();
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Syracuse, Allentown, 8, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Baltimore, Philadelphia, 4, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Philadelphia, AtlanticCity, 2, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Towanda, Landcaster, 9, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Wheeling, Allentown, 15, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Baltimore, NewYork, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Harrisburg, Philadelphia, 6, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Ontario, Syracuse, 8, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, ScrantonWilkesBarre, Allentown, 3, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Morgantown, Chambersburg, 7, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Pittsburg, Baltimore, 13, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Rochester, Reading, 13, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Pittsburg, Philadelphia, 15, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Buffalo, Harrisburg, 13, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Lewiston, Syracuse, 9, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Morgantown, Williamsport, 13, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, OilCity, Johnstown, 6, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Pittsburg, Harrisburg, 9, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Pittsburg, NewYork, 20, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Altoona, Binghamton, 9, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Dubois, Cumberland, 6, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Ontario, Warren, 5, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Erie, Albany, 20, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Harrisburg, NewYork, 11, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Ontario, Pittsburg, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Rochester, Elmira, 3, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Philadelphia, NewYork, 6, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Warren, York, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Williamsport, Albany, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Chambersburg, ScrantonWilkesBarre, 8, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Coudersport, Binghamton, 7, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, NewYork, AtlanticCity, 6, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, OilCity, ScrantonWilkesBarre, 14, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Baltimore, Albany, 16, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Youngstown, Morgantown, 7, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Pittsburg, Buffalo, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Gettysburg, Reading, 3, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Buffalo, NewYork, 18, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Buffalo, Johnstown, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Buffalo, Philadelphia, 19, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Buffalo, Baltimore, 16, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Erie, Altoona, 8, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Johnstown, Elmira, 10, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Wheeling, Albany, 22, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Youngstown, ScrantonWilkesBarre, 17, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Youngstown, Rochester, 14, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Wheeling, Erie, 9, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Dubois, Stroudsburg, 12, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Harrisburg, Baltimore, 3, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            destDeck.add(new DestinationTickets(CardTypes.DEST, Cumberland, Harrisburg, 4, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
+            
+            Collections.shuffle(destDeck);
+            
+            
+        }
     }
 
     public void setFullScreen(JFrame f){

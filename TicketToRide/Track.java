@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Track
 {
-    protected Color color;
+    protected String color;
     protected String label;
     protected City city1;
     protected City city2;
@@ -18,8 +18,8 @@ public class Track
     protected int numLoco;
     protected ArrayList<Stocks> stockOptions;
     
-    public Track(City cityOne, City cityTwo, Color colorIn, int lengthIn, int numLocomotives, ArrayList<Stocks> stocks)
-    {
+    public Track(City cityOne, City cityTwo, String colorIn, int lengthIn, int numLocomotives, ArrayList<Stocks> stocks)
+    { 
         isTaken = false;
         color  = colorIn;
         city1 = cityOne;

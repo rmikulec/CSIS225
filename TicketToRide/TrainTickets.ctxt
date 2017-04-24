@@ -1,4 +1,4 @@
 #BlueJ class context
-comment0.params=type\ colorIn\ loco
-comment0.target=TrainTickets(CardTypes,\ java.awt.Color,\ boolean)
+comment0.params=type\ colorIn\ loco\ picIn
+comment0.target=TrainTickets(CardTypes,\ java.lang.String,\ boolean,\ javax.swing.ImageIcon)
 numComments=1

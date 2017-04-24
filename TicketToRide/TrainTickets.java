@@ -1,4 +1,4 @@
-import java.awt.*;
+import javax.swing.*;
 /**
  * This class represents a Train Ticket object within the game Ticket to Ride
  * 
@@ -7,14 +7,15 @@ import java.awt.*;
  */
 public class TrainTickets extends Card
 {
-    protected Color color;
+    protected String color;
     protected boolean isLoco;
+    protected ImageIcon pic;
     
-    
-    public TrainTickets(CardTypes type, Color colorIn, boolean loco)
+    public TrainTickets(CardTypes type, String colorIn, boolean loco, ImageIcon picIn)
     {
         cardType = type;
         color = colorIn;
         isLoco = loco;
+        pic = picIn;
     }
 }
