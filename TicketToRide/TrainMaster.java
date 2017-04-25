@@ -10,14 +10,15 @@ import java.awt.event.*;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.util.*;
-
+import javax.imageio.*;
+import java.awt.image.*;
 /**
  * This Class will handle most of the GUI for Ticket to Ride
  * 
  * @author Matthew MacFadyen 
  * @version April 18th, 2017
  */
-public class TrainMaster extends JFrame implements MouseListener
+public class TrainMaster extends JFrame implements MouseListener, ActionListener
 {
     private JPanel menu;
     private JPanel rules;
@@ -42,8 +43,8 @@ public class TrainMaster extends JFrame implements MouseListener
     private Stack<TrainTickets> trainDeck;
     private Stack<TrainTickets> trainDiscard;
     private ArrayList<DestinationTickets> destDeck;
-    
-    
+    public BufferedImage gameBoard;
+
     /**
      * The constructor for the Train Master class will set up all of the GUI stuff 
      * that needs to be handled in the game during the beginning of the game
@@ -68,7 +69,7 @@ public class TrainMaster extends JFrame implements MouseListener
         );
         this.setLayout(new FlowLayout());
         this.add(b);
-        setFullScreen(this);
+        //setFullScreen(this);
         ///////////////////////////////////////////////////////////////////////////
 
         //////////////////////Obtain Resolution of Screen//////////////////////////
@@ -86,6 +87,7 @@ public class TrainMaster extends JFrame implements MouseListener
         rules = new JPanel();
         gameMenu = new JPanel();
         game = new JPanel();
+        game.setBackground(Color.gray);
 
         // add the text field 
         item2 = new JTextField();
@@ -98,12 +100,12 @@ public class TrainMaster extends JFrame implements MouseListener
         Image resizedImage = getScaledImage(picture.getImage(), 620, 841); 
         picture.setImage(resizedImage);
         JLabel play = new JLabel(picture);
-        board = new JLabel(new ImageIcon("Images/board1.jpg") );
+        //board = new JLabel(new ImageIcon("Images/board1.jpg") );
 
         label.setLayout(new FlowLayout() );
         instructions.setLayout(new FlowLayout() );
         play.setLayout(new FlowLayout() );
-        board.setLayout(new FlowLayout() );
+        //board.setLayout(new FlowLayout() );
 
         // create the button for the instructions
         b1 = new JButton("How to Play");
@@ -134,7 +136,7 @@ public class TrainMaster extends JFrame implements MouseListener
 
         play.add(item2);
         gameMenu.add(play);
-        game.add(board);
+        //game.add(board);
         instructions.add(b3);
         rules.add(instructions);
         // for hovering 
@@ -154,18 +156,23 @@ public class TrainMaster extends JFrame implements MouseListener
         game.setVisible(false);
 
         // create the event handler object
-        thehandler handler = new thehandler();
 
         // add the buttons to the event handler 
-        b1.addActionListener(handler);
-        b2.addActionListener(handler);
-        b3.addActionListener(handler);
-        b4.addActionListener(handler);
-        b5.addActionListener(handler);
-        item2.addActionListener(handler);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        item2.addActionListener(this);
+
+        try { 
+            gameBoard = ImageIO.read(getClass().getResourceAsStream("Images/board1.jpg")); }
+        catch (IOException error) { 
+            error.printStackTrace(); 
+        }
 
     }
-    
+
     public void setup(int numPlayers) 
     {
         if(numPlayers < 2 || numPlayers > 5)
@@ -208,7 +215,7 @@ public class TrainMaster extends JFrame implements MouseListener
         City Wheeling = new City("Wheeling");
         City Johnstown = new City("Johnstown");
         City Landcaster = new City("Landcaster");
-        
+
         // create all of the stocks for the paths
         Stocks readingLines = new Stocks(CardTypes.STOCK, 7, "Reading Lines", 3);
         Stocks lehighValley = new Stocks(CardTypes.STOCK, 6, "Lehigh Valley", 6);
@@ -219,9 +226,7 @@ public class TrainMaster extends JFrame implements MouseListener
         Stocks nyCentralSystem  = new Stocks(CardTypes.STOCK, 5, "New York Central System ", 3);
         Stocks westernMarylandRailway = new Stocks(CardTypes.STOCK, 4, "Western Maryland Railway", 2);
         Stocks baltimoreandOhioRailroad = new Stocks(CardTypes.STOCK, 10, "Baltimore and Ohio Railroad", 5);
-        
-        
-        
+
         if(numPlayers == 2)
         {
             //rules for 2 players
@@ -302,22 +307,20 @@ public class TrainMaster extends JFrame implements MouseListener
             destDeck.add(new DestinationTickets(CardTypes.DEST, Dubois, Stroudsburg, 12, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
             destDeck.add(new DestinationTickets(CardTypes.DEST, Harrisburg, Baltimore, 3, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
             destDeck.add(new DestinationTickets(CardTypes.DEST, Cumberland, Harrisburg, 4, new ImageIcon(".\\Images\\Pics\\Routes\\routes13")));
-            
+
             Collections.shuffle(destDeck);
-            
-            
+
             // the tracks for all of the cities will be hard coded here
-            
         }
     }
 
-    public void setFullScreen(JFrame f){
-
-        f.setUndecorated(true);
-        f.setResizable(false);
-        vc.setFullScreenWindow(f);
-
-    }
+    //     public void setFullScreen(JFrame f){
+    // 
+    //         f.setUndecorated(true);
+    //         f.setResizable(false);
+    //         vc.setFullScreenWindow(f);
+    // 
+    //     }
 
     /**
      * Returns the nmber of players that will be playing this game of Ticket to Ride 
@@ -380,94 +383,116 @@ public class TrainMaster extends JFrame implements MouseListener
 
         return resizedImg;
     }
+
     /**
-     * this class will handle all the event listeners on Ticket to Ride. Like if a button 
-     * is cliked on the main menu it will make panels go away and come back 
+     * built in class of the ActionListener clas 
      */
-    private class thehandler implements ActionListener 
+    public void actionPerformed(ActionEvent event)
     {
-        /**
-         * built in class of the ActionListener clas 
-         */
-        public void actionPerformed(ActionEvent event)
+        String string = "";
+
+        // if they clicked enter on text field number one 
+        if(event.getSource() == item2)
         {
-            String string = "";
+            string = String.format("field 1: %s", event.getActionCommand() );
 
-            // if they clicked enter on text field number one 
-            if(event.getSource() == item2)
-            {
-                string = String.format("field 1: %s", event.getActionCommand() );
+        }
+        else if(event.getSource() == item3)
+        {
+            string = String.format("field 2: %s", event.getActionCommand() );
 
-            }
-            else if(event.getSource() == item3)
-            {
-                string = String.format("field 2: %s", event.getActionCommand() );
+        }
+        else if(event.getSource() == item4)
+        {
+            string = String.format("field 3: %s", event.getActionCommand() );
 
-            }
-            else if(event.getSource() == item4)
-            {
-                string = String.format("field 3: %s", event.getActionCommand() );
+        }
+        else if(event.getSource() == passwordField)
+        {
+            string = String.format("password field is : %s", event.getActionCommand() );
 
-            }
-            else if(event.getSource() == passwordField)
-            {
-                string = String.format("password field is : %s", event.getActionCommand() );
+        }
+        //if they click the instructions button
+        else if(event.getSource() == b1) 
+        {
+            //set which panels should be visible and which ones should not be visible
+            menu.setVisible(false);
+            gameMenu.setVisible(false);
+            game.setVisible(false);
+            rules.setVisible(true);
+            
+            repaint();
+        }
+        // if they click the play game button
+        else if(event.getSource() == b2) 
+        {
+            //set which panels should be visible and which ones should not be visible
+            menu.setVisible(false);
+            rules.setVisible(false);
+            game.setVisible(false);
+            gameMenu.setVisible(true);
+        }
+        // if they go back to the main menu 
+        else if(event.getSource() == b3) 
+        {
+            //set which panels should be visible and which ones should not be visible
+            rules.setVisible(false);
+            gameMenu.setVisible(false);
+            game.setVisible(false);
+            menu.setVisible(true);
+        }
+        else if(event.getSource() == b4) 
+        {
+            //set which panels should be visible and which ones should not be visible
+            rules.setVisible(false);
+            gameMenu.setVisible(false);
+            game.setVisible(false);
+            menu.setVisible(true);
+        }
+        // if the click the submit button then the game has started 
+        else if(event.getSource() == b5) 
+        {
+            //set which panels should be visible and which ones should not be visible
+            //rules.setVisible(false);
+            //gameMenu.setVisible(false);
+            //menu.setVisible(false);
+            
+            
+            remove(rules);
+            remove(gameMenu);
+            remove(menu);
+            
+            game.setVisible(true);
+            
+            // the width of the image is 1107 and the height is 738
+            setSize(1350, 900);
+            getContentPane().setBackground(Color.LIGHT_GRAY);
+        }
+        // test conditional for getting the coorindates of the board
+        else if(event.getSource() == board)
+        {
+            System.out.println(getX() );
+            System.out.println(getY() );
 
-            }
-            //if they click the instructions button
-            else if(event.getSource() == b1) 
-            {
-                //set which panels should be visible and which ones should not be visible
-                menu.setVisible(false);
-                gameMenu.setVisible(false);
-                game.setVisible(false);
-                rules.setVisible(true);
-            }
-            // if they click the play game button
-            else if(event.getSource() == b2) 
-            {
-                //set which panels should be visible and which ones should not be visible
-                menu.setVisible(false);
-                rules.setVisible(false);
-                game.setVisible(false);
-                gameMenu.setVisible(true);
-            }
-            // if they go back to the main menu 
-            else if(event.getSource() == b3) 
-            {
-                //set which panels should be visible and which ones should not be visible
-                rules.setVisible(false);
-                gameMenu.setVisible(false);
-                game.setVisible(false);
-                menu.setVisible(true);
-            }
-            else if(event.getSource() == b4) 
-            {
-                //set which panels should be visible and which ones should not be visible
-                rules.setVisible(false);
-                gameMenu.setVisible(false);
-                game.setVisible(false);
-                menu.setVisible(true);
-            }
-            // if the click the submit button then the game has started 
-            else if(event.getSource() == b5) 
-            {
-                //set which panels should be visible and which ones should not be visible
-                rules.setVisible(false);
-                gameMenu.setVisible(false);
-                menu.setVisible(false);
-                game.setVisible(true);
-                // the width of the image is 1107 and the height is 738
-                setSize(1600, 900);
-                getContentPane().setBackground(Color.LIGHT_GRAY);
-            }
-            // test conditional for getting the coorindates of the board
-            else if(event.getSource() == board)
-            {
-                System.out.println(getX() );
-                System.out.println(getY() );
+        }
+    }
 
-            }
+    /**
+     * Paint method
+     */
+
+    public void paint(Graphics g) {
+
+        if(game.isVisible())
+        {
+            g.drawImage(gameBoard,0,0,null);
+
+            g.setColor(Color.BLUE);
+            int [] xCoordinates1 = new int [] {1036, 1048, 1048, 1036};
+            int [] yCoordinates1 = new int [] {116, 116, 343, 343};
+            Polygon p1 = new Polygon(xCoordinates1,yCoordinates1,xCoordinates1.length);
+            g.fillPolygon(p1);
+
         }
     }
 }
