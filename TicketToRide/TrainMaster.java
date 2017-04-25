@@ -172,6 +172,7 @@ public class TrainMaster extends JFrame implements MouseListener
         {
             //error
         }
+        // create all of the city objects 
         City Ontario = new City("Ontario");
         City Buffalo = new City("Buffalo");
         City Rochester = new City("Rochester");
@@ -207,6 +208,20 @@ public class TrainMaster extends JFrame implements MouseListener
         City Wheeling = new City("Wheeling");
         City Johnstown = new City("Johnstown");
         City Landcaster = new City("Landcaster");
+        
+        // create all of the stocks for the paths
+        Stocks readingLines = new Stocks(CardTypes.STOCK, 7, "Reading Lines", 3);
+        Stocks lehighValley = new Stocks(CardTypes.STOCK, 6, "Lehigh Valley", 6);
+        Stocks pennsylvaniaRailroad = new Stocks(CardTypes.STOCK, 15, "Pennsylvania Railroad", 5);
+        Stocks jerseyCentralLine = new Stocks(CardTypes.STOCK, 3, "Jersey Central Line", 2);
+        Stocks lackawannaErie = new Stocks(CardTypes.STOCK, 8, "Lackawanna Erie", 4);
+        Stocks bRPRailway = new Stocks(CardTypes.STOCK, 2, "Buffalo, Rochester and Pittsburgh Railway", 2);
+        Stocks nyCentralSystem  = new Stocks(CardTypes.STOCK, 5, "New York Central System ", 3);
+        Stocks westernMarylandRailway = new Stocks(CardTypes.STOCK, 4, "Western Maryland Railway", 2);
+        Stocks baltimoreandOhioRailroad = new Stocks(CardTypes.STOCK, 10, "Baltimore and Ohio Railroad", 5);
+        
+        
+        
         if(numPlayers == 2)
         {
             //rules for 2 players
@@ -290,6 +305,8 @@ public class TrainMaster extends JFrame implements MouseListener
             
             Collections.shuffle(destDeck);
             
+            
+            // the tracks for all of the cities will be hard coded here
             
         }
     }
