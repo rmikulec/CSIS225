@@ -857,6 +857,16 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
             // the tracks for all of the cities will be hard coded here
         }
     }
+    
+    public void TakeTurn()
+    {
+        
+    }
+    
+    public void calculateScore()
+    {
+        
+    }
 
     //     public void setFullScreen(JFrame f){
     // 

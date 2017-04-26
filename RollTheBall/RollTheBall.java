@@ -17,6 +17,7 @@ import java.util.*;
 public class RollTheBall extends JApplet implements MouseListener
 {
     //Instance Variables
+    protected int numMoves; //Number of moves made per level
     protected int[] currentTile;//the current tile in a 2d array
     protected int[] swapTile;//the tile to be swapped in 2d array
     protected  int WIDTH;//width
@@ -59,6 +60,7 @@ public class RollTheBall extends JApplet implements MouseListener
             levels[i] = new Level("./levels/"+surFiles[i]);
         }
 
+        numMoves = 0;
         currentLevelInt = 0;//level starts at 0
         currentLevel = levels[currentLevelInt].getGrid();
         int[] temp = levels[currentLevelInt].getSize();
@@ -132,6 +134,7 @@ public class RollTheBall extends JApplet implements MouseListener
         }
         else//what happens on the second click
         {
+            numMoves++;
             showStatus("CLICK THE PIECE TO MOVE");//directions
             x2 = e.getX();//gets coordinates for swap
             y2 = e.getY();
@@ -145,22 +148,24 @@ public class RollTheBall extends JApplet implements MouseListener
             if(path)//handles pop up messages for when the level is beaten
             {
                 String Message1 = "You beat the level with " + 
-                    starCount + " stars! Would you like to continue?";
+                    starCount + " stars and "+numMoves+" moves. Would you like to continue?";
                 String Message2 = "You beat the level with " +
-                    starCount + "stars! Please Exit game.";
+                    starCount + " stars! and "+numMoves+" Please Exit game.";
                 int reply = 0;
-                if(currentLevelInt == 0 || currentLevelInt == 1)
+                
+                if(currentLevelInt != (levels.length-1))
                 {
                     reply = JOptionPane.showConfirmDialog
                     (null, Message1, "",JOptionPane.YES_NO_OPTION );
                 }
-                if(currentLevelInt == 2)
+                if(currentLevelInt == (levels.length-1))
                 {
                     JOptionPane.showMessageDialog(null, Message2);
                 }
 
                 if (reply == JOptionPane.YES_OPTION)
                 {
+                    numMoves = 0;
                     currentLevelInt++;
                     currentLevel = levels[currentLevelInt].getGrid();
                     int[] temp = levels[currentLevelInt].getSize();
