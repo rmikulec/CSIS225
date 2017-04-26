@@ -7,5 +7,5 @@
  */
 public enum CardTypes
 {
-    DEST, TRAIN, STOCK;
+    DEST, TRAIN, READING, LEHIGH, PR, JCL, ERIE, BO, WM, NYC, BRP;
 }

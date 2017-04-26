@@ -16,9 +16,9 @@ public class Track
     protected int length;
     protected boolean isTaken;
     protected int numLoco;
-    protected ArrayList<Stocks> stockOptions;
-    
-    public Track(City cityOne, City cityTwo, String colorIn, int lengthIn, int numLocomotives, ArrayList<Stocks> stocks)
+    protected ArrayList<String> stockOptions;
+
+    public Track(City cityOne, City cityTwo, String colorIn, int lengthIn, int numLocomotives, ArrayList<String> stocks)
     { 
         isTaken = false;
         color  = colorIn;
@@ -29,22 +29,22 @@ public class Track
         numLoco = numLocomotives;
         stockOptions = stocks;
     }
-    
+
     public City getCity1()
     {
         return city1;
     }
-    
+
     public City getCity2()
     {
         return city2;
     }
-    
+
     public void setTaken(boolean taken)
     {
         isTaken = taken;
     }
-    
+
     public boolean hasStock()
     {
         if(stockOptions.size() == 0)

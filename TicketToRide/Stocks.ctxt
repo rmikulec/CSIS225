@@ -1,4 +1,22 @@
 #BlueJ class context
-comment0.params=type\ numCardsIn\ name\ numWinnersIn
+comment0.params=type\ numCardIn\ name\ numWinnersIn
 comment0.target=Stocks(CardTypes,\ int,\ java.lang.String,\ int)
-numComments=1
+comment1.params=place
+comment1.target=int\ scoreBO(int)
+comment2.params=place
+comment2.target=int\ scoreWM(int)
+comment3.params=place
+comment3.target=int\ scoreLehigh(int)
+comment4.params=place
+comment4.target=int\ scorePR(int)
+comment5.params=place
+comment5.target=int\ scoreNYC(int)
+comment6.params=place
+comment6.target=int\ scoreReading(int)
+comment7.params=place
+comment7.target=int\ scoreJCL(int)
+comment8.params=place
+comment8.target=int\ scoreBRP(int)
+comment9.params=place
+comment9.target=int\ scoreErie(int)
+numComments=10
