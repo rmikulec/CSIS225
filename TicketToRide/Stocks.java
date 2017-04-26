@@ -1,4 +1,4 @@
-
+import javax.swing.*;
 /**
  * This class represents a Stock Card object within the game Ticket to Ride
  * 
@@ -10,6 +10,7 @@ public class Stocks extends Card
     protected int numCard;
     protected String label;
     protected int numWinners;
+    protected ImageIcon pic;
     
     public Stocks(CardTypes type, int numCardIn, String name, int numWinnersIn)
     {
@@ -17,6 +18,39 @@ public class Stocks extends Card
         numCard = numCardIn;
         label = name;
         numWinners = numWinnersIn;
+        
+        if(cardType.equals(CardTypes.ERIE))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 008");
+        }
+        if(cardType.equals(CardTypes.READING))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 005");
+        }
+        if(cardType.equals(CardTypes.LEHIGH))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 002");
+        }
+        if(cardType.equals(CardTypes.PR))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 003");
+        }
+        if(cardType.equals(CardTypes.NYC))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 004");
+        }
+        if(cardType.equals(CardTypes.JCL))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 006");
+        }
+        if(cardType.equals(CardTypes.BO))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 009");
+        }
+        if(cardType.equals(CardTypes.BRP))
+        {
+            pic = new ImageIcon(".\\Pics\\Stocks\\Stocks 007");
+        }
     }
     
     public int scoreBO(int place)
