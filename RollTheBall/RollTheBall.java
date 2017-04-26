@@ -4,7 +4,6 @@ import java.awt.event.*;
 import java.io.File;
 import java.lang.Math;
 import java.util.*;
-
 /**
  * RollTheBall simulates the app Roll the Ball with similar functionality
  * Path from start to end turns green upon completion.
@@ -150,12 +149,12 @@ public class RollTheBall extends JApplet implements MouseListener
                 String Message2 = "You beat the level with " +
                     starCount + "stars! Please Exit game.";
                 int reply = 0;
-                if(currentLevelInt == 0)
+                if(currentLevelInt == 0 || currentLevelInt == 1)
                 {
                     reply = JOptionPane.showConfirmDialog
                     (null, Message1, "",JOptionPane.YES_NO_OPTION );
                 }
-                if(currentLevelInt == 1)
+                if(currentLevelInt == 2)
                 {
                     JOptionPane.showMessageDialog(null, Message2);
                 }
@@ -176,7 +175,12 @@ public class RollTheBall extends JApplet implements MouseListener
     }
 
     /**
-     * Ryan, explain what's going on here
+     * Method to get the tile at a given set of coordinates
+     * 
+     * @param a the first coordinate 
+     * @param b the second coordinate
+     * @return an int array with the coordinates of the tile
+     * on the board
      */
     public int[] getTile(int a, int b)
     {
@@ -478,7 +482,8 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.N))
                 {
                     continue;//nothing
-                }                    
+                }     
+
                 if(currentLevel[i][j].isStart)//start
                 {
                     //start tiles are blue
@@ -553,6 +558,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 {
                     //regular tiles are dark gray
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
                     //draws path shape with appropriate color
@@ -572,6 +582,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.V))//vertical
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
                     if(path && pathList.contains(currentLevel[i][j]))
@@ -593,6 +608,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.H))//horizontal
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
                     if(path && pathList.contains(currentLevel[i][j]))
@@ -615,6 +635,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.LU))//left-up
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
                     if(path && pathList.contains(currentLevel[i][j]))
@@ -639,6 +664,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.RU))//right-up
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE,
                         TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
@@ -663,6 +693,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.LD))//left-down
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE,
                         TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
@@ -687,6 +722,11 @@ public class RollTheBall extends JApplet implements MouseListener
                 if(currentLevel[i][j].getShape().equals(TileShape.RD))//right-down
                 {
                     g.setColor(Color.darkGray);
+                    if(!currentLevel[i][j].Move && !currentLevel[i][j].isStart 
+                    && !currentLevel[i][j].isEnd)
+                    {
+                        g.setColor(Color.magenta);
+                    }
                     g.fillRect(j*TILE_SIZE, i*TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     g.setColor(Color.BLACK);
                     if(path && pathList.contains(currentLevel[i][j]))
@@ -704,7 +744,7 @@ public class RollTheBall extends JApplet implements MouseListener
                         g.setColor(Color.YELLOW);
                         char[] temp = {'*'};
                         g.drawChars(temp,0,1,(j*TILE_SIZE)+
-                        TILE_SIZE/2,(i*TILE_SIZE)+TILE_SIZE/2);
+                            TILE_SIZE/2,(i*TILE_SIZE)+TILE_SIZE/2);
                     }
                 }
             }

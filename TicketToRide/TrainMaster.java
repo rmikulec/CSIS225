@@ -186,6 +186,10 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         b3.addActionListener(this);
         b4.addActionListener(this);
         b5.addActionListener(this);
+        twoPlayer.addActionListener(this);
+        threePlayer.addActionListener(this);
+        fourPlayer.addActionListener(this);
+        fivePlayer.addActionListener(this);
         item2.addActionListener(this);
 
         try { 
