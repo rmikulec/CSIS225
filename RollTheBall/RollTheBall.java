@@ -118,65 +118,13 @@ public class RollTheBall extends JApplet implements MouseListener
 
     /**
      * Method to handle what happens when the mouse is clicked on screen
+     * this method does nothing
      * 
      * @param e the MouseEvent object
      */
     public void mouseClicked(MouseEvent e)
     {
-        if(firstClick)//what happens on the first click
-        {
-            showStatus("CLICK THE EMPTY SPOT");//directions
-            x1 = e.getX();//gets coordinates for swap
-            y1 = e.getY();
-            currentTile = getTile(x1,y1);//the first tile object from array
-            firstClick = false;//set firstClick to false
-            e.consume();
-        }
-        else//what happens on the second click
-        {
-            numMoves++;
-            showStatus("CLICK THE PIECE TO MOVE");//directions
-            x2 = e.getX();//gets coordinates for swap
-            y2 = e.getY();
-
-            swapTile = getTile(x2,y2);//applies swap of tiles
-
-            currentLevelswap(currentTile[1],currentTile[0],swapTile[1],swapTile[0]);
-            firstClick=true;//sets first click back to true
-            path = pathFound();//determines if a path exists from start to end
-            repaint();//repaints
-            if(path)//handles pop up messages for when the level is beaten
-            {
-                String Message1 = "You beat the level with " + 
-                    starCount + " stars and "+numMoves+" moves. Would you like to continue?";
-                String Message2 = "You beat the level with " +
-                    starCount + " stars! and "+numMoves+" Please Exit game.";
-                int reply = 0;
-                
-                if(currentLevelInt != (levels.length-1))
-                {
-                    reply = JOptionPane.showConfirmDialog
-                    (null, Message1, "",JOptionPane.YES_NO_OPTION );
-                }
-                if(currentLevelInt == (levels.length-1))
-                {
-                    JOptionPane.showMessageDialog(null, Message2);
-                }
-
-                if (reply == JOptionPane.YES_OPTION)
-                {
-                    numMoves = 0;
-                    currentLevelInt++;
-                    currentLevel = levels[currentLevelInt].getGrid();
-                    int[] temp = levels[currentLevelInt].getSize();
-                    ROWS = temp[0];
-                    COLS = temp[1];
-                    TILE_SIZE = HEIGHT/(ROWS);
-                }
-                repaint();//paints new board for next level if there is one
-            }
-            e.consume();
-        }
+        
     }
 
     /**
@@ -429,7 +377,7 @@ public class RollTheBall extends JApplet implements MouseListener
      * MouseListener methods must be overridden
      * this method does nothing
      * 
-     * @param e the MouseEvent
+     * @param e the MouseEvent 
      */
     public void mouseEntered(MouseEvent e)
     {
@@ -448,14 +396,68 @@ public class RollTheBall extends JApplet implements MouseListener
     }
 
     /**
-     * MouseListener methods must be overridden
-     * this method does nothing
+     * MouseListener method to handle what happens when 
+     * the mouse is pressed. More effective for this 
+     * project than implementing mouse clicked
      * 
      * @param e the MouseEvent
      */
     public void mousePressed(MouseEvent e)
     {
-        return;
+        if(firstClick)//what happens on the first click
+        {
+            showStatus("CLICK THE EMPTY SPOT");//directions
+            x1 = e.getX();//gets coordinates for swap
+            y1 = e.getY();
+            currentTile = getTile(x1,y1);//the first tile object from array
+            firstClick = false;//set firstClick to false
+            e.consume();
+        }
+        else//what happens on the second click
+        {
+            numMoves++;
+            showStatus("CLICK THE PIECE TO MOVE");//directions
+            x2 = e.getX();//gets coordinates for swap
+            y2 = e.getY();
+
+            swapTile = getTile(x2,y2);//applies swap of tiles
+
+            currentLevelswap(currentTile[1],currentTile[0],swapTile[1],swapTile[0]);
+            firstClick=true;//sets first click back to true
+            path = pathFound();//determines if a path exists from start to end
+            repaint();//repaints
+            if(path)//handles pop up messages for when the level is beaten
+            {
+                String Message1 = "You beat the level with " + 
+                    starCount + " stars and "+numMoves+" moves. Would you like to continue?";
+                String Message2 = "You beat the level with " +
+                    starCount + " stars! and "+numMoves+" Please Exit game.";
+                int reply = 0;
+                
+                if(currentLevelInt != (levels.length-1))
+                {
+                    reply = JOptionPane.showConfirmDialog
+                    (null, Message1, "",JOptionPane.YES_NO_OPTION );
+                }
+                if(currentLevelInt == (levels.length-1))
+                {
+                    JOptionPane.showMessageDialog(null, Message2);
+                }
+
+                if (reply == JOptionPane.YES_OPTION)
+                {
+                    numMoves = 0;
+                    currentLevelInt++;
+                    currentLevel = levels[currentLevelInt].getGrid();
+                    int[] temp = levels[currentLevelInt].getSize();
+                    ROWS = temp[0];
+                    COLS = temp[1];
+                    TILE_SIZE = HEIGHT/(ROWS);
+                }
+                repaint();//paints new board for next level if there is one
+            }
+            e.consume();
+        }
     }
 
     /**
