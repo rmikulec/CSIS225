@@ -1,4 +1,5 @@
 import java.util.*;
+import java.awt.*;
 /**
  * This class represents the player for the game Ticket to Ride
  * The player's "hand" is contained
@@ -13,7 +14,9 @@ public class Player
     protected ArrayList<Stocks> stock;
     protected ArrayList<TrainTickets> trainTix;
     protected ArrayList<DestinationTickets> completedTickets;
-    //boolean start;
+    protected int[] pathLengths;
+    protected Color color;
+    
     public Player()
     {
         trains = 45;
@@ -21,23 +24,128 @@ public class Player
         trainTix = new ArrayList<TrainTickets>();
         completedTickets = new ArrayList<DestinationTickets>();
         stock = new ArrayList<Stocks>();
-
-        //start = true;
-        //         if(start){
-        //             //gets 5 destination cards
-        //             for(int x = 0; x < 6; x++){
-        //                 Tickets.add(drawDestinationTickets()); 
-        //             }
-        //             //display cards if the user clicks on the cards then Tickets.remove();
-        // 
-        //             //gets 4 train tickets
-        //             for(int x = 0; x < 5 ; x++){
-        //                 cards.add(drawTrainTickets());
-        //             }
-        //         }
-
+    }
+    
+    public void setColor(Color input)
+    {
+        color = input;
+    }
+    
+    public Color getColor()
+    {
+        return color;
+    }
+    
+    public int calculateScore(int numPlayers, ArrayList<Player> players)
+    {
+        int totalScore = 0;
+        
+        for(int i = 0; i < pathLengths.length; i++)
+        {
+            if(pathLengths[i] == 1)
+            {
+                totalScore += 1;
+            }
+            else if(pathLengths[i] == 2)
+            {
+                totalScore += 2;
+            }
+            else if(pathLengths[i] == 3)
+            {
+                totalScore += 4;
+            }
+            else if(pathLengths[i] == 4)
+            {
+                totalScore += 7;
+            }
+            else if(pathLengths[i] == 5)
+            {
+                totalScore += 10;
+            }
+            else if(pathLengths[i] == 6)
+            {
+                totalScore += 15;
+            }
+            else if(pathLengths[i] == 7)
+            {
+                totalScore += 18;
+            }
+        }
+        
+        for(int i = 0; i < completedTickets.size(); i++)
+        {
+            totalScore += completedTickets.get(i).value;
+        }
+        
+        int mostDestTix = 0;
+        
+        for(int i = 0; i < players.size(); i++)
+        {
+            if(players.get(i).completedTickets.size() > mostDestTix)
+            {
+                mostDestTix = players.get(i).completedTickets.size();
+            }
+        }
+        
+        if(completedTickets.size() == mostDestTix)
+        {
+            //totalScore += globetrotterBonus;
+        }
+        
+        for(int i = 0; i < stock.size(); i++)
+        {
+            if(stock.get(i).cardType.equals(CardTypes.PR))
+            {
+                 totalScore += stock.get(i).scorePR(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.READING))
+            {
+                totalScore += stock.get(i).scoreReading(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.LEHIGH))
+            {
+                totalScore += stock.get(i).scoreLehigh(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.JCL))
+            {
+                totalScore += stock.get(i).scoreJCL(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.ERIE))
+            {
+                totalScore += stock.get(i).scoreErie(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.BO))
+            {
+                totalScore += stock.get(i).scoreBO(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.WM))
+            {
+                totalScore += stock.get(i).scoreWM(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.NYC))
+            {
+                totalScore += stock.get(i).scoreNYC(getStockPlace(this, players, stock.get(i).cardType));
+            }
+            if(stock.get(i).cardType.equals(CardTypes.BRP))
+            {
+                totalScore += stock.get(i).scoreBRP(getStockPlace(this, players, stock.get(i).cardType));
+            }
+        }
+        
+        return totalScore;
     }
 
+    public int getStockPlace(Player p, ArrayList<Player> players, CardTypes stock)
+    {
+        
+        
+        for(int i = 0; i < players.size(); i++)
+        {
+            
+        }
+        
+        return 0;
+    }
     //     public DestinationTickets drawDestinationTickets(){
     //         return DestinationTickets.remove(0);
     //     }

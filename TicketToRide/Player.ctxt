@@ -1,4 +1,12 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Player()
-numComments=1
+comment1.params=input
+comment1.target=void\ setColor(java.awt.Color)
+comment2.params=
+comment2.target=java.awt.Color\ getColor()
+comment3.params=numPlayers\ players
+comment3.target=int\ calculateScore(int,\ java.util.ArrayList)
+comment4.params=p\ players\ stock
+comment4.target=int\ getStockPlace(Player,\ java.util.ArrayList,\ CardTypes)
+numComments=5
