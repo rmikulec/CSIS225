@@ -10,7 +10,6 @@ public class Stocks extends Card
     protected int numCard;
     protected String label;
     protected int numWinners;
-    protected ImageIcon pic;
     
     public Stocks(CardTypes type, int numCardIn, String name, int numWinnersIn)
     {

@@ -9,7 +9,6 @@ public class TrainTickets extends Card
 {
     protected String color;
     protected boolean isLoco;
-    protected ImageIcon pic;
     
     public TrainTickets(CardTypes type, String colorIn, boolean loco, ImageIcon picIn)
     {

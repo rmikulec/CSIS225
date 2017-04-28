@@ -31,7 +31,6 @@ public class Player
             for(int i=0; i<cards.size(); i++){
                 dest.add(cards.get(i));
             }
-
     }
 
     //     public DestinationTickets drawDestinationTickets(){

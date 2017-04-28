@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
@@ -29,10 +30,12 @@ public class Main extends Application {
     protected boolean isStart;
     protected boolean zeroMove;
 
-    protected TrainMaster master = new TrainMaster(numPlayers);
+    protected TrainMaster master;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        isStart=true;
+        System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
         Group root = new Group();
         Group Instr = new Group();
         Group setUp = new Group();
@@ -225,6 +228,7 @@ public class Main extends Application {
 
     public void playGame(Stage primaryStage){
 
+        master = new TrainMaster(numPlayers);
         master.setup(numPlayers);
 
         Group Game = new Group();
@@ -243,13 +247,13 @@ public class Main extends Application {
         mainMenuBG.setFitHeight(screenHeight+60);
 
 
-        Image board = new Image(getClass().getResourceAsStream("/images/board1.jpg"));
+        Image board = new Image(getClass().getResourceAsStream("./images/board1.jpg"));
         gc.drawImage(board,0,0);
 
 
-        if(isStart){
+       if(isStart){
             master.setUpPlayers();
-        }
+       }
 
         Image test = master.getPlayer(0).dest.get(0).pic;
 

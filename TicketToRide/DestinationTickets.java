@@ -11,7 +11,6 @@ public class DestinationTickets extends Card
     protected City loc2;
     protected boolean isComplete;
     protected int value;
-    protected ImageIcon pic;
     
     public DestinationTickets(CardTypes type, City loc1in, City loc2in, int valueIn, ImageIcon picIn)
     {

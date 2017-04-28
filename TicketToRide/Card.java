@@ -1,4 +1,4 @@
-
+import javax.swing.*;
 /**
  * Card is an abstract class to denote which objects are cards and stores only the card type
  * 
@@ -8,4 +8,5 @@
 public abstract class Card
 {
     protected CardTypes cardType;//the type of card
+    protected ImageIcon pic;
 }
