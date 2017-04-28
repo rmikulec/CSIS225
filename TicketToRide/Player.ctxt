@@ -1,12 +1,17 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Player()
+comment0.text=\r\n\ Constructor\ to\ create\ a\ new\ player\ object,\ takes\ no\ parameters\r\n\ because\ everything\ should\ be\ initialized\ at\ the\ beginning\ of\ the\r\n\ game\ to\ the\ defaults.\r\n
 comment1.params=input
 comment1.target=void\ setColor(java.awt.Color)
+comment1.text=\r\n\ Setter\ method\ for\ the\ color\ variable\r\n\ \r\n\ @param\ input\ the\ color\ you\ wish\ the\ player's\ \r\n\ track\ objects\ to\ be\ on\ the\ board\r\n
 comment2.params=
 comment2.target=java.awt.Color\ getColor()
+comment2.text=\r\n\ Getter\ method\ for\ the\ color\ variable\r\n\ \r\n\ @return\ the\ color\ of\ the\ players\ train\ pieces\r\n
 comment3.params=numPlayers\ players
 comment3.target=int\ calculateScore(int,\ java.util.ArrayList)
+comment3.text=\r\n\ Method\ to\ calculate\ the\ score\ for\ the\ given\ player\r\n\ \r\n\ @param\ players\ an\ arraylist\ of\ the\ players\ in\ game\r\n\ @return\ the\ player's\ calculated\ score\ based\ on\ their\ "hand"\r\n
 comment4.params=p\ players\ stock
 comment4.target=int\ getStockPlace(Player,\ java.util.ArrayList,\ CardTypes)
+comment4.text=\r\n\ Method\ to\ determine\ where\ the\ player\ ranks\ in\ terms\ of\ the\ number\ of\ cards\ of\ a\ particular\ stock\r\n\ \r\n\ @param\ p\ the\ player\ whose\ position\ is\ in\ question\r\n\ @param\ players\ the\ arraylist\ of\ all\ players\ in\ game\r\n\ @stock\ the\ type\ of\ stock\ we\ are\ determining\ the\ place\ of\r\n\ @return\ the\ place\ value\ for\ the\ given\ stock\r\n
 numComments=5

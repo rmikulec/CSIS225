@@ -16,7 +16,13 @@ public class Player
     protected ArrayList<DestinationTickets> completedTickets;
     protected int[] pathLengths;
     protected Color color;
+    
 
+    /**
+     * Constructor to create a new player object, takes no parameters
+     * because everything should be initialized at the beginning of the
+     * game to the defaults.
+     */
     public Player()
     {
         trains = 45;
@@ -26,16 +32,33 @@ public class Player
         stock = new ArrayList<Stocks>();
     }
 
+    /**
+     * Setter method for the color variable
+     * 
+     * @param input the color you wish the player's 
+     * track objects to be on the board
+     */
     public void setColor(Color input)
     {
         color = input;
     }
 
+    /**
+     * Getter method for the color variable
+     * 
+     * @return the color of the players train pieces
+     */
     public Color getColor()
     {
         return color;
     }
 
+    /**
+     * Method to calculate the score for the given player
+     * 
+     * @param players an arraylist of the players in game
+     * @return the player's calculated score based on their "hand"
+     */
     public int calculateScore(int numPlayers, ArrayList<Player> players)
     {
         int totalScore = 0;
@@ -135,6 +158,14 @@ public class Player
         return totalScore;
     }
 
+    /**
+     * Method to determine where the player ranks in terms of the number of cards of a particular stock
+     * 
+     * @param p the player whose position is in question
+     * @param players the arraylist of all players in game
+     * @stock the type of stock we are determining the place of
+     * @return the place value for the given stock
+     */
     public int getStockPlace(Player p, ArrayList<Player> players, CardTypes stock)
     {
         Player currentPlayer = new Player();

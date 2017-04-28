@@ -875,11 +875,6 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
 
     }
 
-    public void calculateScore()
-    {
-
-    }
-
     //     public void setFullScreen(JFrame f){
     // 
     //         f.setUndecorated(true);
