@@ -16,7 +16,7 @@ public class Player
     protected ArrayList<DestinationTickets> completedTickets;
     protected int[] pathLengths;
     protected Color color;
-    
+
     public Player()
     {
         trains = 45;
@@ -25,21 +25,21 @@ public class Player
         completedTickets = new ArrayList<DestinationTickets>();
         stock = new ArrayList<Stocks>();
     }
-    
+
     public void setColor(Color input)
     {
         color = input;
     }
-    
+
     public Color getColor()
     {
         return color;
     }
-    
+
     public int calculateScore(int numPlayers, ArrayList<Player> players)
     {
         int totalScore = 0;
-        
+
         for(int i = 0; i < pathLengths.length; i++)
         {
             if(pathLengths[i] == 1)
@@ -71,80 +71,105 @@ public class Player
                 totalScore += 18;
             }
         }
-        
+
         for(int i = 0; i < completedTickets.size(); i++)
         {
             totalScore += completedTickets.get(i).value;
         }
-        
+
         int mostDestTix = 0;
-        
-        for(int i = 0; i < players.size(); i++)
-        {
-            if(players.get(i).completedTickets.size() > mostDestTix)
-            {
-                mostDestTix = players.get(i).completedTickets.size();
-            }
-        }
-        
-        if(completedTickets.size() == mostDestTix)
-        {
-            //totalScore += globetrotterBonus;
-        }
-        
+
+        //         for(int i = 0; i < players.size(); i++)
+        //         {
+        //             if(players.get(i).completedTickets.size() > mostDestTix)
+        //             {
+        //                 mostDestTix = players.get(i).completedTickets.size();
+        //             }
+        //         }
+        //         //globetrotterBonus
+        //         if(completedTickets.size() == mostDestTix)
+        //         {
+        //             totalScore += 15;
+        //         }
+
         for(int i = 0; i < stock.size(); i++)
         {
             if(stock.get(i).cardType.equals(CardTypes.PR))
             {
-                 totalScore += stock.get(i).scorePR(getStockPlace(this, players, stock.get(i).cardType));
+                totalScore += stock.get(i).scorePR(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.READING))
+            else if(stock.get(i).cardType.equals(CardTypes.READING))
             {
                 totalScore += stock.get(i).scoreReading(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.LEHIGH))
+            else if(stock.get(i).cardType.equals(CardTypes.LEHIGH))
             {
                 totalScore += stock.get(i).scoreLehigh(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.JCL))
+            else if(stock.get(i).cardType.equals(CardTypes.JCL))
             {
                 totalScore += stock.get(i).scoreJCL(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.ERIE))
+            else if(stock.get(i).cardType.equals(CardTypes.ERIE))
             {
                 totalScore += stock.get(i).scoreErie(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.BO))
+            else if(stock.get(i).cardType.equals(CardTypes.BO))
             {
                 totalScore += stock.get(i).scoreBO(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.WM))
+            else if(stock.get(i).cardType.equals(CardTypes.WM))
             {
                 totalScore += stock.get(i).scoreWM(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.NYC))
+            else if(stock.get(i).cardType.equals(CardTypes.NYC))
             {
                 totalScore += stock.get(i).scoreNYC(getStockPlace(this, players, stock.get(i).cardType));
             }
-            if(stock.get(i).cardType.equals(CardTypes.BRP))
+            else if(stock.get(i).cardType.equals(CardTypes.BRP))
             {
                 totalScore += stock.get(i).scoreBRP(getStockPlace(this, players, stock.get(i).cardType));
             }
         }
-        
+
         return totalScore;
     }
 
     public int getStockPlace(Player p, ArrayList<Player> players, CardTypes stock)
     {
-        
-        
+        Player currentPlayer = new Player();
+        int pCount = 0;
+        int place = 0;
+
+        for(int i = 0; i < p.stock.size(); i++)
+        {
+            if(currentPlayer.stock.get(i).cardType.equals(stock))
+            {
+                pCount++;
+            }
+        }
         for(int i = 0; i < players.size(); i++)
         {
-            
+            currentPlayer = players.get(i);
+            if(currentPlayer.equals(p))
+            {
+                continue;
+            }
+            int count = 0;
+
+            for(int j = 0; i < currentPlayer.stock.size(); i++)
+            {
+                if(currentPlayer.stock.get(i).cardType.equals(stock))
+                {
+                    count++;
+                }
+            }
+            if(pCount < count)
+            {
+                place++;
+            }
         }
-        
-        return 0;
+        return place;
     }
     //     public DestinationTickets drawDestinationTickets(){
     //         return DestinationTickets.remove(0);

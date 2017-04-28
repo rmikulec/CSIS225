@@ -265,383 +265,386 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         t1.stockOptions.add("Pennsylvania Railroad");
         t1.stockOptions.add("Lackawanna Erie");
         t1.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t1);
         Track t2= new Track(Ontario, Erie, "gray", 3, 2, new ArrayList<String>());
         t2.stockOptions.add("Pennsylvania Railroad");
         t2.stockOptions.add("Lackawanna Erie");
         t2.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t2);
         Track t3= new Track(Ontario, Buffalo, "gray", 1, 1, new ArrayList<String>());
         t3.stockOptions.add("Pennsylvania Railroad");
         t3.stockOptions.add("Lackawanna Erie");
         t3.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t3);
         Track t4= new Track(Ontario, Buffalo, "gray", 1, 1, new ArrayList<String>());
         t4.stockOptions.add("Pennsylvania Railroad");
         t4.stockOptions.add("Lackawanna Erie");
         t4.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t4);
         Track t5= new Track(Buffalo, Coudersport, "gray", 4, 0, new ArrayList<String>());
         t5.stockOptions.add("Pennsylvania Railroad");
         t5.stockOptions.add("Lackawanna Erie");
-
+        tracks.add(t5);
         Track t6= new Track(Warren, Coudersport, "gray", 4, 0, new ArrayList<String>());
         t6.stockOptions.add("Pennsylvania Railroad");
         t6.stockOptions.add("Lackawanna Erie");
         t6.stockOptions.add("Pennsylvania Railroad");
         t6.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
         t6.stockOptions.add("Baltimore and Ohio Railroad");
-
+        tracks.add(t6);
         Track t7= new Track(Dubois, Altoona, "gray", 2, 0, new ArrayList<String>());
         t7.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t7);
         Track t8= new Track(Lewiston, Harrisburg, "gray", 2, 0, new ArrayList<String>());
         t8.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t8);
         Track t9= new Track(Harrisburg, Lancaster, "gray", 2, 0, new ArrayList<String>());
         t9.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t9);
         Track t10= new Track(Harrisburg, Lancaster, "gray", 2, 0, new ArrayList<String>());
         t10.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t10);
         Track t11= new Track(Gettysburg, York, "gray", 1, 0, new ArrayList<String>());
         t11.stockOptions.add("Pennsylvania Railroad");
         t11.stockOptions.add("Western Maryland Railway");
-
+        tracks.add(t11);
         Track t12= new Track(Philadelphia, AtlanticCity, "gray", 2, 0, new ArrayList<String>());
         t12.stockOptions.add("Pennsylvania Railroad");
         t12.stockOptions.add("Reading Lines");
         t12.stockOptions.add("Jersey Central Line");
-
+        tracks.add(t12);
         Track t13= new Track(Philadelphia, AtlanticCity, "gray", 2, 0, new ArrayList<String>());
         t13.stockOptions.add("Pennsylvania Railroad");
         t13.stockOptions.add("Reading Lines");
         t13.stockOptions.add("Jersey Central Line");
-
+        tracks.add(t13);
         Track t14= new Track(Philadelphia, NewYork, "gray", 6, 0, new ArrayList<String>());
         t14.stockOptions.add("Pennsylvania Railroad");
         t14.stockOptions.add("Baltimore and Ohio Railroad");
         t14.stockOptions.add("Reading Lines");
         t14.stockOptions.add("Jersey Central Line");
-
+        tracks.add(t14);
         Track t15= new Track(Philadelphia, NewYork, "gray", 6, 0, new ArrayList<String>());
         t15.stockOptions.add("Pennsylvania Railroad");
         t15.stockOptions.add("Baltimore and Ohio Railroad");
         t15.stockOptions.add("Reading Lines");
         t15.stockOptions.add("Jersey Central Line");
-
+        tracks.add(t15);
         Track t16= new Track(Johnstown, Cumberland, "gray", 3, 0, new ArrayList<String>());
         t16.stockOptions.add("Pennsylvania Railroad");
         t16.stockOptions.add("Western Maryland Railway");
         t16.stockOptions.add("Baltimore and Ohio Railroad");
-
+        tracks.add(t16);
         Track t17= new Track(Harrisburg, ScrantonWilkesBarre, "gray", 6, 0, new ArrayList<String>());
         t17.stockOptions.add("Pennsylvania Railroad");
         t17.stockOptions.add("Reading Lines");
-
+        tracks.add(t17);
         Track t18= new Track(Towanda, ScrantonWilkesBarre, "gray", 3, 0, new ArrayList<String>());
         t18.stockOptions.add("Pennsylvania Railroad");
         t18.stockOptions.add("Lackawanna Erie");
         t18.stockOptions.add("Lehigh Valley");
-
+        tracks.add(t18);
         Track t19= new Track(Erie, Buffalo, "White", 5, 0, new ArrayList<String>());
         t19.stockOptions.add("Lackawanna Erie");
         t19.stockOptions.add("New York Central System");
-
+        tracks.add(t19);
         Track t20= new Track(Elmira, Binghamton, "White", 3, 0, new ArrayList<String>());
         t20.stockOptions.add("Lackawanna Erie");
-
+        tracks.add(t20);
         Track t21= new Track(Syracuse, Albany, "White", 6, 0, new ArrayList<String>());
         t21.stockOptions.add("New York Central System");
-
+        tracks.add(t21);
         Track t22= new Track(Youngstown, OilCity, "White", 3, 0, new ArrayList<String>());
         t22.stockOptions.add("Lackawanna Erie");
-
+        tracks.add(t22);
         Track t23= new Track(Wheeling, Pittsburg, "White", 2, 0, new ArrayList<String>());
         t23.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t23);
         Track t24= new Track(Dubois, Williamsport, "White", 6, 0, new ArrayList<String>());
-
+        tracks.add(t24);
         Track t25= new Track(York, Baltimore, "White", 2, 0, new ArrayList<String>());
         t25.stockOptions.add("Western Maryland Railway");
         t25.stockOptions.add("Pennsylvania Railroad");
-
+        tracks.add(t25);
         Track t26= new Track(ScrantonWilkesBarre, Allentown, "White", 3, 0, new ArrayList<String>());
         t26.stockOptions.add("Pennsylvania Railroad");
         t26.stockOptions.add("Lehigh Valley");
         t26.stockOptions.add("Reading Lines");
         t26.stockOptions.add("Jersey Central Line");
-
-        Track t27= new Track(Syracuse, Albany, "red", 6, 0, new ArrayList<String>());
-        t27.stockOptions.add("New York Central System");
-
-        Track t28= new Track(ScrantonWilkesBarre, NewYork, "red", 5, 0, new ArrayList<String>());
-        t28.stockOptions.add("Jersey Central Line");
-        t28.stockOptions.add("Lackawanna Erie");
-        t28.stockOptions.add("Lehigh Valley");
-
-        Track t29= new Track(Allentown, Philadelphia, "red", 3, 0, new ArrayList<String>());
-        t29.stockOptions.add("Reading Lines");
-        t29.stockOptions.add("Pennsylvania Railroad");
-
-        Track t30= new Track(Gettysburg, Baltimore, "red", 3, 0, new ArrayList<String>());
+        tracks.add(t26);
+        Track t27 = new Track(NewYork, AtlanticCity, "white", 6,0, new ArrayList<String>());
+        t27.stockOptions.add("Jersey Central Line");
+        tracks.add(t27);
+        Track t28= new Track(Syracuse, Albany, "red", 6, 0, new ArrayList<String>());
+        t28.stockOptions.add("New York Central System");
+        tracks.add(t28);
+        Track t29= new Track(ScrantonWilkesBarre, NewYork, "red", 5, 0, new ArrayList<String>());
+        t29.stockOptions.add("Jersey Central Line");
+        t29.stockOptions.add("Lackawanna Erie");
+        t29.stockOptions.add("Lehigh Valley");
+        tracks.add(t29);
+        Track t30= new Track(Allentown, Philadelphia, "red", 3, 0, new ArrayList<String>());
+        t30.stockOptions.add("Reading Lines");
         t30.stockOptions.add("Pennsylvania Railroad");
-        t30.stockOptions.add("Western Maryland Railway");
-
-        Track t31= new Track(Altoona, Harrisburg, "red", 5, 0, new ArrayList<String>());
+        tracks.add(t30);
+        Track t31= new Track(Gettysburg, Baltimore, "red", 3, 0, new ArrayList<String>());
         t31.stockOptions.add("Pennsylvania Railroad");
-
-        Track t32= new Track(Morgantown, Cumberland, "red", 5, 0, new ArrayList<String>());
-        t32.stockOptions.add("Western Maryland Railway");
-        t32.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t33= new Track(OilCity, Pittsburg, "red", 4, 0, new ArrayList<String>());
+        t31.stockOptions.add("Western Maryland Railway");
+        tracks.add(t31);
+        Track t32= new Track(Altoona, Harrisburg, "red", 5, 0, new ArrayList<String>());
+        t31.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t32);
+        Track t33= new Track(Morgantown, Cumberland, "red", 5, 0, new ArrayList<String>());
+        t33.stockOptions.add("Western Maryland Railway");
         t33.stockOptions.add("Baltimore and Ohio Railroad");
-        t33.stockOptions.add("Pennsylvania Railroad");
-
-        Track t34= new Track(Towanda, Binghamton, "red", 2, 0, new ArrayList<String>());
-        t34.stockOptions.add("Lackawanna Erie");
-
-        Track t35= new Track(Rochester, Syracuse, "blue", 4, 0, new ArrayList<String>());
-        t35.stockOptions.add("New York Central System");
-        t35.stockOptions.add("Lehigh Valley");
-
-        Track t36= new Track(Albany, NewYork, "blue", 6, 0, new ArrayList<String>());
+        tracks.add(t33);
+        Track t34= new Track(OilCity, Pittsburg, "red", 4, 0, new ArrayList<String>());
+        t34.stockOptions.add("Baltimore and Ohio Railroad");
+        t34.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t34);
+        Track t35= new Track(Towanda, Binghamton, "red", 2, 0, new ArrayList<String>());
+        t35.stockOptions.add("Lackawanna Erie");
+        tracks.add(t35);
+        Track t36= new Track(Rochester, Syracuse, "blue", 4, 0, new ArrayList<String>());
         t36.stockOptions.add("New York Central System");
-        t36.stockOptions.add("Pennsylvania Railroad");
-        t36.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t37= new Track(ScrantonWilkesBarre, Allentown, "blue", 3, 0, new ArrayList<String>());
+        t36.stockOptions.add("Lehigh Valley");
+        tracks.add(t36);
+        Track t37= new Track(Albany, NewYork, "blue", 6, 0, new ArrayList<String>());
+        t37.stockOptions.add("New York Central System");
         t37.stockOptions.add("Pennsylvania Railroad");
-        t37.stockOptions.add("Lehigh Valley");
-        t37.stockOptions.add("Reading Lines");
-        t37.stockOptions.add("Jersey Central Line");
-
-        Track t38= new Track(Cumberland, Baltimore, "blue", 7, 0, new ArrayList<String>());
-        t38.stockOptions.add("Western Maryland Railway");
-        t38.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t39= new Track(Wheeling, Morgantown, "blue", 3, 0, new ArrayList<String>());
+        t37.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t37);
+        Track t38= new Track(ScrantonWilkesBarre, Allentown, "blue", 3, 0, new ArrayList<String>());
+        t38.stockOptions.add("Pennsylvania Railroad");
+        t38.stockOptions.add("Lehigh Valley");
+        t38.stockOptions.add("Reading Lines");
+        t38.stockOptions.add("Jersey Central Line");
+        tracks.add(t38);
+        Track t39= new Track(Cumberland, Baltimore, "blue", 7, 0, new ArrayList<String>());
+        t39.stockOptions.add("Western Maryland Railway");
         t39.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t40= new Track(Chambersburg, Harrisburg, "blue", 2, 0, new ArrayList<String>());
-        t40.stockOptions.add("Reading Lines");
-        t40.stockOptions.add("Pennsylvania Railroad");
-        t40.stockOptions.add("Western Maryland Railway");
-
-        Track t41= new Track(Youngstown, Pittsburg, "blue", 4, 0, new ArrayList<String>());
-        t41.stockOptions.add("New York Central System");
+        tracks.add(t39);
+        Track t40= new Track(Wheeling, Morgantown, "blue", 3, 0, new ArrayList<String>());
+        t40.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t40);
+        Track t41= new Track(Chambersburg, Harrisburg, "blue", 2, 0, new ArrayList<String>());
+        t41.stockOptions.add("Reading Lines");
         t41.stockOptions.add("Pennsylvania Railroad");
-        t41.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t42= new Track(Erie, Warren, "blue", 3, 0, new ArrayList<String>());
+        t41.stockOptions.add("Western Maryland Railway");
+        tracks.add(t41);
+        Track t42= new Track(Youngstown, Pittsburg, "blue", 4, 0, new ArrayList<String>());
+        t42.stockOptions.add("New York Central System");
         t42.stockOptions.add("Pennsylvania Railroad");
-        t42.stockOptions.add("Lackawanna Erie");
-        t42.stockOptions.add("Pennsylvania Railroad");
-
-        Track t43= new Track(Johnstown, Altoona, "blue", 1, 0, new ArrayList<String>());
+        t42.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t42);
+        Track t43= new Track(Erie, Warren, "blue", 3, 0, new ArrayList<String>());
         t43.stockOptions.add("Pennsylvania Railroad");
-
-        Track t44= new Track(Buffalo, Rochester, "Black", 5, 0, new ArrayList<String>());
-        t44.stockOptions.add("New York Central System");
+        t43.stockOptions.add("Lackawanna Erie");
+        t43.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t43);
+        Track t44= new Track(Johnstown, Altoona, "blue", 1, 0, new ArrayList<String>());
         t44.stockOptions.add("Pennsylvania Railroad");
-        t44.stockOptions.add("Baltimore and Ohio Railroad");
-        t44.stockOptions.add("Lehigh Valley");
-        t44.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t45= new Track(Elmira, Syracuse, "Black", 4, 0, new ArrayList<String>());
-        t45.stockOptions.add("Lehigh Valley");
+        tracks.add(t44);
+        Track t45= new Track(Buffalo, Rochester, "Black", 5, 0, new ArrayList<String>());
         t45.stockOptions.add("New York Central System");
-
-        Track t46= new Track(Warren, Dubois, "Black", 3, 0, new ArrayList<String>());
-        t46.stockOptions.add("Lackawanna Erie");
-        t46.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t47= new Track(Erie, OilCity, "Black", 3, 0, new ArrayList<String>());
-        t47.stockOptions.add("New York Central System");
-        t47.stockOptions.add("Pennsylvania Railroad");
+        t45.stockOptions.add("Pennsylvania Railroad");
+        t45.stockOptions.add("Baltimore and Ohio Railroad");
+        t45.stockOptions.add("Lehigh Valley");
+        t45.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
+        tracks.add(t45);
+        Track t46= new Track(Elmira, Syracuse, "Black", 4, 0, new ArrayList<String>());
+        t46.stockOptions.add("Lehigh Valley");
+        t46.stockOptions.add("New York Central System");
+        tracks.add(t46);
+        Track t47= new Track(Warren, Dubois, "Black", 3, 0, new ArrayList<String>());
         t47.stockOptions.add("Lackawanna Erie");
-
-        Track t48= new Track(Pittsburg, Johnstown, "Black", 4, 0, new ArrayList<String>());
+        t47.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
+        tracks.add(t47);
+        Track t48= new Track(Erie, OilCity, "Black", 3, 0, new ArrayList<String>());
+        t48.stockOptions.add("New York Central System");
         t48.stockOptions.add("Pennsylvania Railroad");
-        t48.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t49= new Track(Chambersburg, Gettysburg, "Black", 1, 0, new ArrayList<String>());
-
-        Track t50= new Track(Harrisburg, York, "Black", 1, 0, new ArrayList<String>());
-        t50.stockOptions.add("Pennsylvania Railroad");
-        t50.stockOptions.add("Western Maryland Railway");
-
-        Track t51= new Track(Allentown, Philadelphia, "Black", 3, 0, new ArrayList<String>());
+        t48.stockOptions.add("Lackawanna Erie");
+        tracks.add(t48);
+        Track t49= new Track(Pittsburg, Johnstown, "Black", 4, 0, new ArrayList<String>());
+        t49.stockOptions.add("Pennsylvania Railroad");
+        t49.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t49);
+        Track t50= new Track(Chambersburg, Gettysburg, "Black", 1, 0, new ArrayList<String>());
+        tracks.add(t50);
+        Track t51= new Track(Harrisburg, York, "Black", 1, 0, new ArrayList<String>());
         t51.stockOptions.add("Pennsylvania Railroad");
-        t51.stockOptions.add("Reading Lines");
-
-        Track t52= new Track(NewYork, AtlanticCity, "Black", 6, 0, new ArrayList<String>());
-        t52.stockOptions.add("Jersey Central Line");
-
-        Track t53= new Track(Binghamton, ScrantonWilkesBarre, "Black", 3, 0, new ArrayList<String>());
-        t53.stockOptions.add("Lackawanna Erie");
-
-        Track t54= new Track(Williamsport, Towanda, "Black", 2, 0, new ArrayList<String>());
+        t51.stockOptions.add("Western Maryland Railway");
+        tracks.add(t51);
+        Track t52= new Track(Allentown, Philadelphia, "Black", 3, 0, new ArrayList<String>());
+        t52.stockOptions.add("Pennsylvania Railroad");
+        t52.stockOptions.add("Reading Lines");
+        tracks.add(t52);
+        Track t53= new Track(NewYork, AtlanticCity, "Black", 6, 0, new ArrayList<String>());
+        t53.stockOptions.add("Jersey Central Line");
+        tracks.add(t53);
+        Track t54= new Track(Binghamton, ScrantonWilkesBarre, "Black", 3, 0, new ArrayList<String>());
         t54.stockOptions.add("Lackawanna Erie");
-        t54.stockOptions.add("Reading Lines");
-
-        Track t55= new Track(Buffalo, Warren, "Green", 4, 0, new ArrayList<String>());
+        tracks.add(t54);
+        Track t55= new Track(Williamsport, Towanda, "Black", 2, 0, new ArrayList<String>());
         t55.stockOptions.add("Lackawanna Erie");
-        t55.stockOptions.add("Pennsylvania Railroad");
-        t55.stockOptions.add("Baltimore and Ohio Railroad");
-        t55.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t56= new Track(Erie, Youngstown, "Green", 4, 0, new ArrayList<String>());
+        t55.stockOptions.add("Reading Lines");
+        tracks.add(t55);
+        Track t56= new Track(Buffalo, Warren, "Green", 4, 0, new ArrayList<String>());
         t56.stockOptions.add("Lackawanna Erie");
-        t56.stockOptions.add("New York Central System");
-
-        Track t57= new Track(Wheeling, Pittsburg, "Green", 2, 0, new ArrayList<String>());
-        t57.stockOptions.add("Pennsylvania Railroad");
-
-        Track t58= new Track(Cumberland, Chambersburg, "Green", 2, 0, new ArrayList<String>());
-        t58.stockOptions.add("Western Maryland Railway");
+        t56.stockOptions.add("Pennsylvania Railroad");
+        t56.stockOptions.add("Baltimore and Ohio Railroad");
+        t56.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
+        tracks.add(t56);
+        Track t57= new Track(Erie, Youngstown, "Green", 4, 0, new ArrayList<String>());
+        t57.stockOptions.add("Lackawanna Erie");
+        t57.stockOptions.add("New York Central System");
+        tracks.add(t57);
+        Track t58= new Track(Wheeling, Pittsburg, "Green", 2, 0, new ArrayList<String>());
         t58.stockOptions.add("Pennsylvania Railroad");
-
-        Track t59= new Track(Lancaster, Philadelphia, "Green", 4, 0, new ArrayList<String>());
+        tracks.add(t58);
+        Track t59= new Track(Cumberland, Chambersburg, "Green", 2, 0, new ArrayList<String>());
+        t59.stockOptions.add("Western Maryland Railway");
         t59.stockOptions.add("Pennsylvania Railroad");
-
-        Track t60= new Track(Reading, Allentown, "Green", 2, 0, new ArrayList<String>());
-        t60.stockOptions.add("Reading Lines");
-
-        Track t61= new Track(Coudersport, Williamsport, "Green", 4, 0, new ArrayList<String>());
-        t61.stockOptions.add("Pennsylvania Railroad");
-
-        Track t62= new Track(Altoona, Lewiston, "Green", 2, 0, new ArrayList<String>());
-
-        Track t63= new Track(Albany, NewYork, "Green", 6, 0, new ArrayList<String>());
-        t63.stockOptions.add("Pennsylvania Railroad");
-        t63.stockOptions.add("New York Central System");
-        t63.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t64= new Track(Binghamton, ScrantonWilkesBarre, "Green", 3, 0, new ArrayList<String>());
-        t64.stockOptions.add("Lackawanna Erie");
-
-        Track t65= new Track(Rochester, Elmira, "Green", 3, 0, new ArrayList<String>());
-        t64.stockOptions.add("Lackawanna Erie");
+        tracks.add(t59);
+        Track t60= new Track(Lancaster, Philadelphia, "Green", 4, 0, new ArrayList<String>());
+        t60.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t60);
+        Track t61= new Track(Reading, Allentown, "Green", 2, 0, new ArrayList<String>());
+        t61.stockOptions.add("Reading Lines");
+        tracks.add(t61);
+        Track t62= new Track(Coudersport, Williamsport, "Green", 4, 0, new ArrayList<String>());
+        t62.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t62);
+        Track t63= new Track(Altoona, Lewiston, "Green", 2, 0, new ArrayList<String>());
+        tracks.add(t63);
+        Track t64= new Track(Albany, NewYork, "Green", 6, 0, new ArrayList<String>());
         t64.stockOptions.add("Pennsylvania Railroad");
+        t64.stockOptions.add("New York Central System");
         t64.stockOptions.add("Baltimore and Ohio Railroad");
-        t64.stockOptions.add("Lehigh Valley");
-        t64.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t66= new Track(Buffalo, Rochester, "Yellow", 4, 0, new ArrayList<String>());
-        t66.stockOptions.add("New York Central System");
+        tracks.add(t64);
+        Track t65= new Track(Binghamton, ScrantonWilkesBarre, "Green", 3, 0, new ArrayList<String>());
+        t65.stockOptions.add("Lackawanna Erie");
+        tracks.add(t65);
+        Track t66= new Track(Rochester, Elmira, "Green", 3, 0, new ArrayList<String>());
+        t66.stockOptions.add("Lackawanna Erie");
         t66.stockOptions.add("Pennsylvania Railroad");
         t66.stockOptions.add("Baltimore and Ohio Railroad");
         t66.stockOptions.add("Lehigh Valley");
         t66.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t67= new Track(Erie, Youngstown, "Yellow", 4, 0, new ArrayList<String>());
-        t67.stockOptions.add("Lackawanna Erie");
+        tracks.add(t66);
+        Track t67= new Track(Buffalo, Rochester, "Yellow", 4, 0, new ArrayList<String>());
         t67.stockOptions.add("New York Central System");
-
-        Track t68= new Track(Harrisburg, Gettysburg, "Yellow", 2, 0, new ArrayList<String>());
-        t68.stockOptions.add("Pennsylvania Railroad");
-        t68.stockOptions.add("Reading Lines");
-
-        Track t69= new Track(Baltimore, Philadelphia, "Yellow", 4, 0, new ArrayList<String>());
+        t67.stockOptions.add("Pennsylvania Railroad");
+        t67.stockOptions.add("Baltimore and Ohio Railroad");
+        t67.stockOptions.add("Lehigh Valley");
+        t67.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
+        tracks.add(t67);
+        Track t68= new Track(Erie, Youngstown, "Yellow", 4, 0, new ArrayList<String>());
+        t68.stockOptions.add("Lackawanna Erie");
+        t68.stockOptions.add("New York Central System");
+        tracks.add(t68);
+        Track t69= new Track(Harrisburg, Gettysburg, "Yellow", 2, 0, new ArrayList<String>());
         t69.stockOptions.add("Pennsylvania Railroad");
-        t69.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t70= new Track(ScrantonWilkesBarre, Stroudsburg, "Yellow", 2, 0, new ArrayList<String>());
-        t70.stockOptions.add("Reading Lines");
-        t70.stockOptions.add("Lehigh Valley");
-        t70.stockOptions.add("Jersey Central Line");
-
-        Track t71= new Track(Lewiston, Williamsport, "Yellow", 3, 0, new ArrayList<String>());
-        t71.stockOptions.add("Pennsylvania Railroad");
+        t69.stockOptions.add("Reading Lines");
+        tracks.add(t69);
+        Track t70= new Track(Baltimore, Philadelphia, "Yellow", 4, 0, new ArrayList<String>());
+        t70.stockOptions.add("Pennsylvania Railroad");
+        t70.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t70);
+        Track t71= new Track(ScrantonWilkesBarre, Stroudsburg, "Yellow", 2, 0, new ArrayList<String>());
         t71.stockOptions.add("Reading Lines");
-
-        Track t72= new Track(Elmira, Towanda, "Yellow", 2, 0, new ArrayList<String>());
+        t71.stockOptions.add("Lehigh Valley");
+        t71.stockOptions.add("Jersey Central Line");
+        tracks.add(t71);
+        Track t72= new Track(Lewiston, Williamsport, "Yellow", 3, 0, new ArrayList<String>());
         t72.stockOptions.add("Pennsylvania Railroad");
-        t72.stockOptions.add("Lehigh Valley");
-        t72.stockOptions.add("Lackawanna Erie");
-
-        Track t73= new Track(Altoona, Johnstown, "Yellow", 1, 0, new ArrayList<String>());
+        t72.stockOptions.add("Reading Lines");
+        tracks.add(t72);
+        Track t73= new Track(Elmira, Towanda, "Yellow", 2, 0, new ArrayList<String>());
         t73.stockOptions.add("Pennsylvania Railroad");
-
-        Track t74= new Track(Pittsburg, Morgantown, "Yellow", 3, 0, new ArrayList<String>());
-
-        Track t75= new Track(Reading, Lancaster, "Yellow", 1, 0, new ArrayList<String>());
-        t75.stockOptions.add("Reading Lines");
-
-        Track t76= new Track(Syracuse, Binghamton, "Yellow", 2, 0, new ArrayList<String>());
-        t76.stockOptions.add("Lackawanna Erie");
-
-        Track t77= new Track(Erie, Buffalo, "Orange", 5, 0, new ArrayList<String>());
+        t73.stockOptions.add("Lehigh Valley");
+        t73.stockOptions.add("Lackawanna Erie");
+        tracks.add(t73);
+        Track t74= new Track(Altoona, Johnstown, "Yellow", 1, 0, new ArrayList<String>());
+        t74.stockOptions.add("Pennsylvania Railroad");
+        tracks.add(t74);
+        Track t75= new Track(Pittsburg, Morgantown, "Yellow", 3, 0, new ArrayList<String>());
+        tracks.add(t75);
+        Track t76= new Track(Reading, Lancaster, "Yellow", 1, 0, new ArrayList<String>());
+        t76.stockOptions.add("Reading Lines");
+        tracks.add(t76);
+        Track t77= new Track(Syracuse, Binghamton, "Yellow", 2, 0, new ArrayList<String>());
         t77.stockOptions.add("Lackawanna Erie");
-        t77.stockOptions.add("New York Central System");
-
-        Track t78= new Track(OilCity, Warren, "Orange", 2, 0, new ArrayList<String>());
+        tracks.add(t77);
+        Track t78= new Track(Erie, Buffalo, "Orange", 5, 0, new ArrayList<String>());
         t78.stockOptions.add("Lackawanna Erie");
         t78.stockOptions.add("New York Central System");
-        t78.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t79= new Track(Coudersport, Elmira, "Orange", 4, 0, new ArrayList<String>());
+        tracks.add(t78);
+        Track t79= new Track(OilCity, Warren, "Orange", 2, 0, new ArrayList<String>());
         t79.stockOptions.add("Lackawanna Erie");
         t79.stockOptions.add("New York Central System");
         t79.stockOptions.add("Baltimore and Ohio Railroad");
-        t79.stockOptions.add("Lackawanna Erie");
-        t79.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
-
-        Track t80= new Track(Syracuse, Binghamton, "Orange", 2, 0, new ArrayList<String>());
+        tracks.add(t79);
+        Track t80= new Track(Coudersport, Elmira, "Orange", 4, 0, new ArrayList<String>());
         t80.stockOptions.add("Lackawanna Erie");
-
-        Track t81= new Track(Williamsport, ScrantonWilkesBarre, "Orange", 5, 0, new ArrayList<String>());
-
-        Track t82= new Track(Altoona, Harrisburg, "Orange", 5, 0, new ArrayList<String>());
-        t82.stockOptions.add("Pennsylvania Railroad");
-
-        Track t83= new Track(Lancaster, Philadelphia, "Orange", 4, 0, new ArrayList<String>());
+        t80.stockOptions.add("New York Central System");
+        t80.stockOptions.add("Baltimore and Ohio Railroad");
+        t80.stockOptions.add("Lackawanna Erie");
+        t80.stockOptions.add("Buffalo, Rochester and Pittsburgh Railway");
+        tracks.add(t80);
+        Track t81= new Track(Syracuse, Binghamton, "Orange", 2, 0, new ArrayList<String>());
+        t81.stockOptions.add("Lackawanna Erie");
+        tracks.add(t81);
+        Track t82= new Track(Williamsport, ScrantonWilkesBarre, "Orange", 5, 0, new ArrayList<String>());
+        tracks.add(t82);
+        Track t83= new Track(Altoona, Harrisburg, "Orange", 5, 0, new ArrayList<String>());
         t83.stockOptions.add("Pennsylvania Railroad");
-
-        Track t84= new Track(Youngstown, Pittsburg, "Orange", 4, 0, new ArrayList<String>());
+        tracks.add(t83);
+        Track t84= new Track(Lancaster, Philadelphia, "Orange", 4, 0, new ArrayList<String>());
         t84.stockOptions.add("Pennsylvania Railroad");
-        t84.stockOptions.add("Baltimore and Ohio Railroad");
-        t84.stockOptions.add("New York Central System");
-
-        Track t85= new Track(Allentown, Stroudsburg, "Orange", 2, 0, new ArrayList<String>());
-        t85.stockOptions.add("Reading Lines");
-        t85.stockOptions.add("Lehigh Valley");
-        t85.stockOptions.add("Jersey Central Line");
-
-        Track t86= new Track(Albany, Binghamton, "Pink", 6, 0, new ArrayList<String>());
-
-        Track t87= new Track(Reading, Harrisburg, "Pink", 2, 0, new ArrayList<String>());
-        t87.stockOptions.add("Reading Lines");
-
-        Track t88= new Track(Pittsburg, Altoona, "Pink", 4, 0, new ArrayList<String>());
-        t88.stockOptions.add("Pennsylvania Railroad");
-        t88.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t89= new Track(Youngstown, Wheeling, "Pink", 5, 0, new ArrayList<String>());
+        tracks.add(t84);
+        Track t85= new Track(Youngstown, Pittsburg, "Orange", 4, 0, new ArrayList<String>());
+        t85.stockOptions.add("Pennsylvania Railroad");
+        t85.stockOptions.add("Baltimore and Ohio Railroad");
+        t85.stockOptions.add("New York Central System");
+        tracks.add(t85);
+        Track t86= new Track(Allentown, Stroudsburg, "Orange", 2, 0, new ArrayList<String>());
+        t86.stockOptions.add("Reading Lines");
+        t86.stockOptions.add("Lehigh Valley");
+        t86.stockOptions.add("Jersey Central Line");
+        tracks.add(t86);
+        Track t87= new Track(Albany, Binghamton, "Pink", 6, 0, new ArrayList<String>());
+        tracks.add(t87);
+        Track t88= new Track(Reading, Harrisburg, "Pink", 2, 0, new ArrayList<String>());
+        t88.stockOptions.add("Reading Lines");
+        tracks.add(t88);
+        Track t89= new Track(Pittsburg, Altoona, "Pink", 4, 0, new ArrayList<String>());
         t89.stockOptions.add("Pennsylvania Railroad");
         t89.stockOptions.add("Baltimore and Ohio Railroad");
-        t89.stockOptions.add("New York Central System");
-
-        Track t90= new Track(OilCity, Dubois, "Pink", 3, 0, new ArrayList<String>());
-
-        Track t91= new Track(York, Lancaster, "Pink", 1, 0, new ArrayList<String>());
-        t91.stockOptions.add("Pennsylvania Railroad");
-
-        Track t92= new Track(Baltimore, Philadelphia, "Pink", 4, 0, new ArrayList<String>());
+        tracks.add(t89);
+        Track t90= new Track(Youngstown, Wheeling, "Pink", 5, 0, new ArrayList<String>());
+        t90.stockOptions.add("Pennsylvania Railroad");
+        t90.stockOptions.add("Baltimore and Ohio Railroad");
+        t90.stockOptions.add("New York Central System");
+        tracks.add(t90);
+        Track t91= new Track(OilCity, Dubois, "Pink", 3, 0, new ArrayList<String>());
+        tracks.add(t91);
+        Track t92= new Track(York, Lancaster, "Pink", 1, 0, new ArrayList<String>());
         t92.stockOptions.add("Pennsylvania Railroad");
-        t92.stockOptions.add("Baltimore and Ohio Railroad");
-
-        Track t93= new Track(Rochester, Syracuse, "Pink", 4, 0, new ArrayList<String>());
-        t93.stockOptions.add("New York Central System");
-        t93.stockOptions.add("Lehigh Valley");
-
-        Track t94= new Track(ScrantonWilkesBarre, NewYork, "Pink", 5, 0, new ArrayList<String>());
-        t94.stockOptions.add("Jersey Central Line");
+        tracks.add(t92);
+        Track t93= new Track(Baltimore, Philadelphia, "Pink", 4, 0, new ArrayList<String>());
+        t93.stockOptions.add("Pennsylvania Railroad");
+        t93.stockOptions.add("Baltimore and Ohio Railroad");
+        tracks.add(t93);
+        Track t94= new Track(Rochester, Syracuse, "Pink", 4, 0, new ArrayList<String>());
+        t94.stockOptions.add("New York Central System");
         t94.stockOptions.add("Lehigh Valley");
-        t94.stockOptions.add("Lackawanna Erie");
-
+        tracks.add(t94);
+        Track t95= new Track(ScrantonWilkesBarre, NewYork, "Pink", 5, 0, new ArrayList<String>());
+        t95.stockOptions.add("Jersey Central Line");
+        t95.stockOptions.add("Lehigh Valley");
+        t95.stockOptions.add("Lackawanna Erie");
+        tracks.add(t95);
         // create all of the stocks for the paths
         Stocks readingLines1 = new Stocks(CardTypes.READING, 1, "Reading Lines", 3);
         Stocks readingLines2 = new Stocks(CardTypes.READING, 2, "Reading Lines", 3);
@@ -650,7 +653,6 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks readingLines5 = new Stocks(CardTypes.READING, 5, "Reading Lines", 3);
         Stocks readingLines6 = new Stocks(CardTypes.READING, 6, "Reading Lines", 3);
         Stocks readingLines7 = new Stocks(CardTypes.READING, 7, "Reading Lines", 3);
-        Stack<Stocks> readingLines = new Stack<Stocks>();
         readingLines.push(readingLines7);
         readingLines.push(readingLines6);
         readingLines.push(readingLines5);
@@ -665,7 +667,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks lehighValley4 = new Stocks(CardTypes.LEHIGH, 4, "Lehigh Valley", 3);
         Stocks lehighValley5 = new Stocks(CardTypes.LEHIGH, 5, "Lehigh Valley", 3);
         Stocks lehighValley6 = new Stocks(CardTypes.LEHIGH, 6, "Lehigh Valley", 3);
-        Stack<Stocks> lehighValley = new Stack<Stocks>();
+
         lehighValley.push(lehighValley6);
         lehighValley.push(lehighValley5);
         lehighValley.push(lehighValley4);
@@ -688,7 +690,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks pennsylvaniaRailroad13 = new Stocks(CardTypes.PR, 13, "Pennsylvania Railroad", 5);
         Stocks pennsylvaniaRailroad14 = new Stocks(CardTypes.PR, 14, "Pennsylvania Railroad", 5);
         Stocks pennsylvaniaRailroad15 = new Stocks(CardTypes.PR, 15, "Pennsylvania Railroad", 5);
-        Stack<Stocks> pennsylvaniaRailroad = new Stack<Stocks>();
+        
         lehighValley.push(pennsylvaniaRailroad15);
         lehighValley.push(pennsylvaniaRailroad14);
         lehighValley.push(pennsylvaniaRailroad13);
@@ -708,7 +710,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks jerseyCentralLine1 = new Stocks(CardTypes.JCL, 1, "Jersey Central Line", 2);
         Stocks jerseyCentralLine2 = new Stocks(CardTypes.JCL, 2, "Jersey Central Line", 2);
         Stocks jerseyCentralLine3 = new Stocks(CardTypes.JCL, 3, "Jersey Central Line", 2);
-        Stack<Stocks> jerseyCentralLine = new Stack<Stocks>();
+        
         jerseyCentralLine.push(jerseyCentralLine3);
         jerseyCentralLine.push(jerseyCentralLine2);
         jerseyCentralLine.push(jerseyCentralLine1);
@@ -721,7 +723,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks lackawannaErie6 = new Stocks(CardTypes.ERIE, 6, "Lackawanna Erie", 4);
         Stocks lackawannaErie7 = new Stocks(CardTypes.ERIE, 7, "Lackawanna Erie", 4);
         Stocks lackawannaErie8 = new Stocks(CardTypes.ERIE, 8, "Lackawanna Erie", 4);
-        Stack<Stocks> lackawannaErie = new Stack<Stocks>();
+        
         lackawannaErie.push(lackawannaErie8);
         lackawannaErie.push(lackawannaErie7);
         lackawannaErie.push(lackawannaErie6);
@@ -742,7 +744,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks nyCentralSystem3  = new Stocks(CardTypes.NYC, 3, "New York Central System ", 3);
         Stocks nyCentralSystem4  = new Stocks(CardTypes.NYC, 4, "New York Central System ", 3);
         Stocks nyCentralSystem5  = new Stocks(CardTypes.NYC, 5, "New York Central System ", 3);
-        Stack<Stocks> nyCentralSystem = new Stack<Stocks>();
+        
         nyCentralSystem.push(nyCentralSystem5);
         nyCentralSystem.push(nyCentralSystem4);
         nyCentralSystem.push(nyCentralSystem3);
@@ -753,7 +755,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks westernMarylandRailway2 = new Stocks(CardTypes.WM, 2, "Western Maryland Railway", 2);
         Stocks westernMarylandRailway3 = new Stocks(CardTypes.WM, 3, "Western Maryland Railway", 2);
         Stocks westernMarylandRailway4 = new Stocks(CardTypes.WM, 4, "Western Maryland Railway", 2);
-        Stack<Stocks> westernMarylandRailway = new Stack<Stocks>();
+        
         westernMarylandRailway.push(westernMarylandRailway4);
         westernMarylandRailway.push(westernMarylandRailway3);
         westernMarylandRailway.push(westernMarylandRailway2);
@@ -769,7 +771,7 @@ public class TrainMaster extends JFrame implements MouseListener, ActionListener
         Stocks baltimoreandOhioRailroad8 = new Stocks(CardTypes.BO, 8, "Baltimore and Ohio Railroad", 5);
         Stocks baltimoreandOhioRailroad9= new Stocks(CardTypes.BO, 9, "Baltimore and Ohio Railroad", 5);
         Stocks baltimoreandOhioRailroad10 = new Stocks(CardTypes.BO, 10, "Baltimore and Ohio Railroad", 5);
-        Stack<Stocks> baltimoreandOhioRailroad = new Stack<Stocks>();
+        
         baltimoreandOhioRailroad.push(baltimoreandOhioRailroad10);
         baltimoreandOhioRailroad.push(baltimoreandOhioRailroad9);
         baltimoreandOhioRailroad.push(baltimoreandOhioRailroad8);
