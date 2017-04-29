@@ -22,19 +22,15 @@ import java.awt.image.*;
  */
 public class TrainMaster {
 
-    private boolean gameStarted;
-    private boolean gameEnded;
+    protected boolean gameStarted;
+    protected boolean gameEnded;
 
-    private Stack<TrainTickets> trainDeck;
-    private Stack<TrainTickets> trainDiscard;
-    private ArrayList<DestinationTickets> destDeck;
+    protected Stack<TrainTickets> trainDeck;
+    protected Stack<TrainTickets> trainDiscard = new Stack<TrainTickets>();
+    protected ArrayList<DestinationTickets> destDeck;
 
-    private ArrayList<Player> players;
-    protected Player p1;
-    protected Player p2;
-    protected Player p3;
-    protected Player p4;
-    protected Player p5;
+    protected ArrayList<Player> players;
+    protected ArrayList<TrainTickets> displayCards = new ArrayList<TrainTickets>();
 
     protected Stack<Stocks> readingLines = new Stack<Stocks>();
     protected Stack<Stocks> lehighValley = new Stack<Stocks>();
@@ -531,21 +527,21 @@ public class TrainMaster {
         Stocks pennsylvaniaRailroad14 = new Stocks(CardTypes.PR, 14, "Pennsylvania Railroad", 5);
         Stocks pennsylvaniaRailroad15 = new Stocks(CardTypes.PR, 15, "Pennsylvania Railroad", 5);
 
-        lehighValley.push(pennsylvaniaRailroad15);
-        lehighValley.push(pennsylvaniaRailroad14);
-        lehighValley.push(pennsylvaniaRailroad13);
-        lehighValley.push(pennsylvaniaRailroad12);
-        lehighValley.push(pennsylvaniaRailroad11);
-        lehighValley.push(pennsylvaniaRailroad10);
-        lehighValley.push(pennsylvaniaRailroad9);
-        lehighValley.push(pennsylvaniaRailroad8);
-        lehighValley.push(pennsylvaniaRailroad7);
-        lehighValley.push(pennsylvaniaRailroad6);
-        lehighValley.push(pennsylvaniaRailroad5);
-        lehighValley.push(pennsylvaniaRailroad4);
-        lehighValley.push(pennsylvaniaRailroad3);
-        lehighValley.push(pennsylvaniaRailroad2);
-        lehighValley.push(pennsylvaniaRailroad1);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad15);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad14);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad13);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad12);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad11);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad10);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad9);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad8);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad7);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad6);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad5);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad4);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad3);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad2);
+        pennsylvaniaRailroad.push(pennsylvaniaRailroad1);
 
         Stocks jerseyCentralLine1 = new Stocks(CardTypes.JCL, 1, "Jersey Central Line", 2);
         Stocks jerseyCentralLine2 = new Stocks(CardTypes.JCL, 2, "Jersey Central Line", 2);
@@ -624,7 +620,7 @@ public class TrainMaster {
 
 
         //rules for 3-5 players
-        System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
+
         trainDeck = new Stack<TrainTickets>();
         for (int i = 0; i < 12; i++) {
             trainDeck.push(new TrainTickets(CardTypes.TRAIN, "black", false, new Image("./Images/Pics/TrainColors/TrainColors 007.jpg")));
@@ -703,8 +699,7 @@ public class TrainMaster {
         for (int i = 0; i < numberOfPlayers; i++) {
             players.add(new Player());
         }
-        System.out.println(numberOfPlayers);
-        System.out.println(players.size());
+
         // the tracks for all of the cities will be hard coded here
     }
 
@@ -728,53 +723,53 @@ public class TrainMaster {
 
     public Player nextPlayer(Player currentPlayer) {
         if (numberOfPlayers == 2) {
-            if (currentPlayer.equals(p1)) {
-                return p2;
+            if (currentPlayer.equals(players.get(0))) {
+                return players.get(1);
             }
-            if (currentPlayer.equals(p2)) {
-                return p1;
+            if (currentPlayer.equals(players.get(1))) {
+                return players.get(2);
             }
         }
         if (numberOfPlayers == 3) {
-            if (currentPlayer.equals(p1)) {
-                return p2;
+            if (currentPlayer.equals(players.get(0))) {
+                return players.get(1);
             }
-            if (currentPlayer.equals(p2)) {
-                return p3;
+            if (currentPlayer.equals(players.get(1))) {
+                return players.get(2);
             }
-            if (currentPlayer.equals(p3)) {
-                return p1;
+            if (currentPlayer.equals(players.get(2))) {
+                return players.get(0);
             }
         }
         if (numberOfPlayers == 4) {
-            if (currentPlayer.equals(p1)) {
-                return p2;
+            if (currentPlayer.equals(players.get(0))) {
+                return players.get(1);
             }
-            if (currentPlayer.equals(p2)) {
-                return p3;
+            if (currentPlayer.equals(players.get(1))) {
+                return players.get(2);
             }
-            if (currentPlayer.equals(p3)) {
-                return p4;
+            if (currentPlayer.equals(players.get(2))) {
+                return players.get(3);
             }
-            if (currentPlayer.equals(p4)) {
-                return p1;
+            if (currentPlayer.equals(players.get(3))) {
+                return players.get(0);
             }
         }
         if (numberOfPlayers == 5) {
-            if (currentPlayer.equals(p1)) {
-                return p2;
+            if (currentPlayer.equals(players.get(0))) {
+                return players.get(1);
             }
-            if (currentPlayer.equals(p2)) {
-                return p3;
+            if (currentPlayer.equals(players.get(1))) {
+                return players.get(2);
             }
-            if (currentPlayer.equals(p3)) {
-                return p4;
+            if (currentPlayer.equals(players.get(2))) {
+                return players.get(3);
             }
-            if (currentPlayer.equals(p4)) {
-                return p5;
+            if (currentPlayer.equals(players.get(3))) {
+                return players.get(0);
             }
-            if (currentPlayer.equals(p5)) {
-                return p1;
+            if (currentPlayer.equals(players.get(4))) {
+                return players.get(0);
             }
         }
         return currentPlayer;
@@ -824,4 +819,95 @@ public class TrainMaster {
 
         return players.get(num);
     }
+
+    public boolean gameOn(ArrayList<Player> players) {
+        for (int i = 0; i < players.size(); i++)
+        {
+            if (players.get(i).trains < 3)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //public void play()
+    //{
+        //while(gameOn(players))
+        //{
+            //if(clicked on make path)
+            //{
+
+            //}
+            //else if(clicked on draw train tickets)
+            //{
+
+            //}
+            //else if(clicked on draw destination tickets)
+            //{
+
+            //}
+        //}
+    //}
+
+    public void makePath(Track t)
+    {
+        //if the path is taken just return
+        //prompt the user to present the cards they want to use to take the path
+        //if they have the correct amount of cards of that color/locomotives
+        //draw polygon object on board with the player's color
+        //find out which object the polygon belongs to
+        //set the isTaken feild of that object to true
+        //add the track to the arraylist of tracks in player class
+
+        LoadPolygons l = new LoadPolygons();
+        Polygon clickedOn = new Polygon();//replace
+        Track toAdd = tracks.get(l.getPolygons().indexOf(clickedOn));
+
+    }
+
+    public void drawTrainTickets(Player p)
+    {
+        //p.trainTix.add(first one clicked);
+        //if card was from the deck, return
+        //if card was face-up, reset face-up cards by popping deck
+        //repaint
+        //if card chosen was face-up locomotive, return
+        //p.trainTix.add(second one clicked);
+        //if card was from the deck, return
+        //if card was face-up, reset face-up cards by popping deck
+        //repaint
+    }
+
+    public void drawDestinationTickets(Player p)
+    {
+        DestinationTickets[] chooseFrom = new DestinationTickets[5];
+        for(int i = 0; i < 5; i++)
+        {
+            chooseFrom[i] = destDeck.remove(0);
+        }
+        //make choice for which to discard
+        //destDeck.add(the cards to get rid of)
+        //must keep at least one
+        for (int i = 0; i < chooseFrom.length; i++)
+        {
+            p.dest.add(chooseFrom[i]);
+        }
+    }
+
+    public void updateDisplayCards()
+    {
+
+        while(displayCards.size() < 5)
+        {
+            if(trainDeck.isEmpty())
+            {
+                Collections.shuffle(trainDiscard);
+                trainDeck = trainDiscard;
+                trainDiscard.removeAllElements();
+            }
+            displayCards.add(trainDeck.pop());
+        }
+    }
+
 }

@@ -16,13 +16,14 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 
+import java.awt.event.MouseListener;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
-public class Main extends Application {
+public class Main extends Application{
 
     protected int screenWidth;
     protected int screenHeight;
@@ -31,6 +32,7 @@ public class Main extends Application {
     protected boolean zeroMove;
 
     protected TrainMaster master;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -223,6 +225,7 @@ public class Main extends Application {
 
 
     }
+
 
 
 

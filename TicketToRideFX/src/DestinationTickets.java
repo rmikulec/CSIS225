@@ -12,6 +12,7 @@ public class DestinationTickets extends Card
     protected boolean isComplete;
     protected int value;
     protected Image pic;
+    protected String label;
     
     public DestinationTickets(CardTypes type, City loc1in, City loc2in, int valueIn, Image picIn)
     {
@@ -21,5 +22,6 @@ public class DestinationTickets extends Card
         value = valueIn;
         pic = picIn;
         isComplete = false;
+        label =  loc1.name + " - " + loc2.name;
     }
 }

@@ -17,6 +17,8 @@ public class Track
     protected boolean isTaken;
     protected int numLoco;
     protected ArrayList<String> stockOptions;
+    protected Player pathOwner;
+
 
     public Track(City cityOne, City cityTwo, String colorIn, int lengthIn, int numLocomotives, ArrayList<String> stocks)
     { 
@@ -53,4 +55,9 @@ public class Track
         }
         return true;
     }
+    public void setPlayer(Player newOwner)
+    {
+        pathOwner = newOwner;
+    }
+
 }
