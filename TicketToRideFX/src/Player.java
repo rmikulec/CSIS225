@@ -258,4 +258,30 @@ public class Player
         }
         return ret;
     }
+
+    public int getNumStock(CardTypes type)
+    {
+        int ret = 0;
+        for(int i = 0; i < stock.size(); i++)
+        {
+            if(stock.get(i).cardType.equals(type))
+            {
+                ret++;
+            }
+        }
+        return ret;
+    }
+
+    public boolean destTicketComplete(DestinationTickets d)
+    {
+        boolean hasFirstCity = false;
+        boolean hasSecondCity = false;
+        for(int i = 0; i < claimedRoutes.size(); i++)
+        {
+            if(claimedRoutes.get(i).city1.equals)
+            {
+
+            }
+        }
+    }
 }
