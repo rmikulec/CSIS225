@@ -213,4 +213,49 @@ public class Player
         }
         return place;
     }
+    public int[] colorCount()
+    {
+        int[] ret = new int[9];
+        //order: Locomotive, Pink, Blue, Yellow, White, Orange, Black, Green, Red
+        for(int i = 0; i < trainTix.size(); i++)
+        {
+            if(trainTix.get(i).color.equals(""))
+            {
+                ret[0]++;
+            }
+            if(trainTix.get(i).color.equals("Pink"))
+            {
+                ret[1]++;
+            }
+            if(trainTix.get(i).color.equals("Blue"))
+            {
+                ret[2]++;
+            }
+            if(trainTix.get(i).color.equals("Yellow"))
+            {
+                ret[3]++;
+            }
+            if(trainTix.get(i).color.equals("White"))
+            {
+                ret[4]++;
+            }
+            if(trainTix.get(i).color.equals("Orange"))
+            {
+                ret[5]++;
+            }
+            if(trainTix.get(i).color.equals("Black"))
+            {
+                ret[6]++;
+            }
+            if(trainTix.get(i).color.equals("Green"))
+            {
+                ret[7]++;
+            }
+            if(trainTix.get(i).color.equals("Red"))
+            {
+                ret[8]++;
+            }
+        }
+        return ret;
+    }
 }

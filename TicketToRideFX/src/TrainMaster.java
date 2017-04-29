@@ -56,10 +56,12 @@ public class TrainMaster {
 
     }
 
-    public void setup(int numPlayers) {
-        if (numPlayers < 2 || numPlayers > 5) {
-            //error
-        }
+    public void setup(int numPlayers)
+    {
+
+
+
+
         // create all of the city objects 
         City Ontario = new City("Ontario");
         City Buffalo = new City("Buffalo");
@@ -696,17 +698,21 @@ public class TrainMaster {
         Collections.shuffle(destDeck);
 
 
-        for (int i = 0; i < numberOfPlayers; i++) {
+
+        for (int i = 0; i < numPlayers; i++)
+        {
             players.add(new Player());
+        }
+
+        for(int i = 0; i < 5; i++)
+        {
+            displayCards.add(trainDeck.pop());
         }
 
         // the tracks for all of the cities will be hard coded here
     }
 
 
-    public void TakeTurn() {
-
-    }
 
 
     /**
@@ -833,8 +839,10 @@ public class TrainMaster {
 
     //public void play()
     //{
+        //Player currentPlayer = players.get(0);
         //while(gameOn(players))
         //{
+
             //if(clicked on make path)
             //{
 
@@ -850,20 +858,54 @@ public class TrainMaster {
         //}
     //}
 
-    public void makePath(Track t)
+    public boolean makePath(Player p, int index)
     {
-        //if the path is taken just return
+        Track t = tracks.get(index);//temp track object
+        if(t.isTaken)//checks if the track is taken
+        {
+            return false;
+        }
         //prompt the user to present the cards they want to use to take the path
-        //if they have the correct amount of cards of that color/locomotives
-        //draw polygon object on board with the player's color
-        //find out which object the polygon belongs to
+        int colorCount = 0;//variable to count the number of cards of the right color in player hand
+        //loop to update color count
+        for(int i = 0; i < p.trainTix.size(); i++)
+        {
+            if(p.trainTix.get(i).color.equals(t.color) || p.trainTix.get(i).color.equals(""))
+            {
+                colorCount++;
+            }
+        }
+        int tempLength = t.length;//temporary length variable for card removal from hand
+        if(colorCount >= t.length)//loop if player has required cards
+        {
+            for(int i = 0; i < p.trainTix.size(); i++)
+            {
+                if(p.trainTix.get(i).color.equals(t.color) && tempLength > 0)
+                {
+                    trainDiscard.push(p.trainTix.remove(i));//added to discard pile
+                    tempLength--;//decrement the temporary length
+                }
+            }
+            if(tempLength > 0)
+            {
+                for(int i = 0; i < p.trainTix.size(); i++)
+                {
+                    if(p.trainTix.get(i).isLoco && tempLength > 0)
+                    {
+                        trainDiscard.push(p.trainTix.remove(i));
+                    }
+                }
+            }
+        }
+        else//return if they don't
+        {
+            return false;
+        }
         //set the isTaken feild of that object to true
+        tracks.get(index).isTaken = true;
         //add the track to the arraylist of tracks in player class
-
-        LoadPolygons l = new LoadPolygons();
-        Polygon clickedOn = new Polygon();//replace
-        Track toAdd = tracks.get(l.getPolygons().indexOf(clickedOn));
-
+        p.claimedRoutes.add(t);
+        return true;
     }
 
     public void drawTrainTickets(Player p)
