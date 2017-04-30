@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.awt.*;
 /**
@@ -15,8 +18,10 @@ public class Player
     protected ArrayList<TrainTickets> trainTix;
     protected ArrayList<DestinationTickets> completedTickets;
     protected Color color;
-    //protected int[] pathLengths;
+    protected ArrayList<City> playerCities = new ArrayList<City>();
     protected ArrayList<Track> claimedRoutes;
+    protected int[][] adjMatrix;
+    protected City[] allCities;
 
     //boolean start;
     public Player()
@@ -274,14 +279,157 @@ public class Player
 
     public boolean destTicketComplete(DestinationTickets d)
     {
-        boolean hasFirstCity = false;
-        boolean hasSecondCity = false;
-        for(int i = 0; i < claimedRoutes.size(); i++)
-        {
-            if(claimedRoutes.get(i).city1.equals)
-            {
+        allCities = new City[35];
+        allCities[0] = new City("Ontario");
+        allCities[1] = new City("Buffalo");
+        allCities[2] = new City("Rochester");
+        allCities[3] = new City("Syracuse");
+        allCities[4] =  new City("Albany");
+        allCities[5] =  new City("Erie");
+        allCities[6] =  new City("Warren");
+        allCities[7] = new City("Coudersport");
+        allCities[8] = new City("Elmira");
+        allCities[9] = new City("Binghamton");
+        allCities[10] = new City("Towanda");
+        allCities[11] = new City("Youngstown");
+        allCities[12] = new City("OilCity");
+        allCities[13] = new City("Dubois");
+        allCities[14] = new City("Williamsport");
+        allCities[15] = new City("ScrantonWilkesBarre");
+        allCities[16] = new City("York");
+        allCities[17] = new City("Pittsburg");
+        allCities[18] = new City("Altoona");
+        allCities[19] = new City("Lewiston");
+        allCities[20] = new City("Harrisburg");
+        allCities[21] = new City("Reading");
+        allCities[22] = new City("Allentown");
+        allCities[23] =  new City("Stroudsburg");
+        allCities[24] = new City("Wheeling");
+        allCities[25] = new City("Morgantown");
+        allCities[26] = new City("Cumberland");
+        allCities[27] = new City("Chambersburg");
+        allCities[28] = new City("Gettysburg");
+        allCities[29] = new City("NewYork");
+        allCities[30] = new City("Lancaster");
+        allCities[31] = new City("Baltimore");
+        allCities[32] = new City("Philadelphia");
+        allCities[33] = new City("AtlanticCity");
+        allCities[34] = new City("Johnstown");
 
+        //The adjacency matrix created here represents all of the connected
+        //cities on the board. The indicies, 0..35, are in the same order as
+        //the allCities array. If two cities are connected on the board, the
+        //2-d array here at index city1, city2 will contain a 1. Otherwise,
+        //that index will contain a 0 to signify they are not connected.
+        int l;
+        int m;
+        adjMatrix = new int[35][35];
+        Scanner s = null;
+        try {
+            s = new Scanner(new File("./src/AdjacencyMatrix.txt"));
+            for (l = 0; l < 35; l++) {
+                for (m = 0; m < 35; m++)
+                {
+                    adjMatrix[l][m] = s.nextInt();
+                }
             }
         }
+        catch (FileNotFoundException e)
+        {
+            System.err.print("File not found");
+            System.exit(1);
+        }
+        s.close();
+
+
+        for(int i = 0; i < claimedRoutes.size(); i++)
+        {
+            if(!playerCities.contains(claimedRoutes.get(i).city1))
+            {
+                playerCities.add(claimedRoutes.get(i).city1);
+            }
+            if(!playerCities.contains(claimedRoutes.get(i).city2))
+            {
+                playerCities.add(claimedRoutes.get(i).city2);
+            }
+        }
+        for(int i = 0; i < allCities.length; i++)
+        {
+            if(!playerCities.contains(allCities[i]))
+            {
+                for(int k = 0; k < 35; k++)
+                {
+                    for(int j = 0; j < 35; j++)
+                    {
+                        if(k == i || j == i)
+                        {
+                            adjMatrix[k][j] = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        int loc1index = 0;
+        int loc2index = 0;
+        for(int i = 0; i < allCities.length; i++)
+        {
+            if(allCities[i].equals(d.loc1))
+            {
+                loc1index = i;
+            }
+            if(allCities[i].equals(d.loc2))
+            {
+                loc2index = i;
+            }
+        }
+
+        ArrayList<Boolean> paths = new ArrayList<Boolean>();
+        if(adjMatrix[loc1index][loc2index] == 1)
+        {
+            return true;
+        }
+        for(int i = 0; i < 35; i++)
+        {
+            if(adjMatrix[loc1index][i] == 1)
+            {
+                paths.add(recFindPath(loc2index, i));
+            }
+        }
+        if(paths.contains(true))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean recFindPath(int target, int curIndex)
+    {
+        ArrayList<Boolean> paths = new ArrayList<Boolean>();
+        if(adjMatrix[curIndex][target] == 1)
+        {
+            return true;
+        }
+        for(int i = 0; i < 35; i++)
+        {
+            if(adjMatrix[curIndex][i] == 1)
+            {
+                paths.add(recFindPath(target, i));
+            }
+        }
+        if(paths.contains(true))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public City nextCity(Track t, City currentCity)
+    {
+        if(t.getCity1().equals(currentCity))
+        {
+            return t.getCity2();
+        }
+        return t.getCity1();
     }
 }

@@ -42,6 +42,43 @@ public class TrainMaster {
     protected Stack<Stocks> nyCentralSystem = new Stack<Stocks>();
     protected Stack<Stocks> westernMarylandRailway = new Stack<Stocks>();
     protected ArrayList<Track> tracks = new ArrayList<Track>();
+    // create all of the city objects
+    protected static City Ontario = new City("Ontario");
+    protected static City Buffalo = new City("Buffalo");
+    protected static City Rochester = new City("Rochester");
+    protected static City Syracuse = new City("Syracuse");
+    protected static City Albany = new City("Albany");
+    protected static City Erie = new City("Erie");
+    protected static City Warren = new City("Warren");
+    protected static City Coudersport = new City("Coudersport");
+    protected static City Towanda = new City("Towanda");
+    protected static City Binghamton = new City("Binghamton");
+    protected static City Youngstown = new City("Youngstown");
+    protected static City OilCity = new City("Oil City");
+    protected static City Dubois = new City("Dubois");
+    protected static City Williamsport = new City("Williamsport");
+    protected static City ScrantonWilkesBarre = new City("Scranton/Wilkes Barre");
+    protected static City NewYork = new City("New York");
+    protected static City Pittsburg = new City("Pittsburg");
+    protected static City Altoona = new City("Altoona");
+    protected static City Lewiston = new City("Lewiston");
+    protected static City Harrisburg = new City("Harrisburg");
+    protected static City Reading = new City("Reading");
+    protected static City Allentown = new City("Allentown");
+    protected static City Stroudsburg = new City("Stroudsburg");
+    protected static City AtlanticCity = new City("Atlantic City");
+    protected static City Philadelphia = new City("Philadelphia");
+    protected static City Elmira = new City("Elmira");
+    protected static City York = new City("York");
+    protected static City Baltimore = new City("Baltimore");
+    protected static City Gettysburg = new City("Gettysburg");
+    protected static City Chambersburg = new City("Chambersburg");
+    protected static City Cumberland = new City("Cumberland");
+    protected static City Morgantown = new City("Morgantown");
+    protected static City Wheeling = new City("Wheeling");
+    protected static City Johnstown = new City("Johnstown");
+    protected static City Lancaster = new City("Lancaster");
+
 
 
     protected int numberOfPlayers;
@@ -62,42 +99,10 @@ public class TrainMaster {
 
 
 
-        // create all of the city objects 
-        City Ontario = new City("Ontario");
-        City Buffalo = new City("Buffalo");
-        City Rochester = new City("Rochester");
-        City Syracuse = new City("Syracuse");
-        City Albany = new City("Albany");
-        City Erie = new City("Erie");
-        City Warren = new City("Warren");
-        City Coudersport = new City("Coudersport");
-        City Towanda = new City("Towanda");
-        City Binghamton = new City("Binghamton");
-        City Youngstown = new City("Youngstown");
-        City OilCity = new City("Oil City");
-        City Dubois = new City("Dubois");
-        City Williamsport = new City("Williamsport");
-        City ScrantonWilkesBarre = new City("Scranton/Wilkes Barre");
-        City NewYork = new City("New York");
-        City Pittsburg = new City("Pittsburg");
-        City Altoona = new City("Altoona");
-        City Lewiston = new City("Lewiston");
-        City Harrisburg = new City("Harrisburg");
-        City Reading = new City("Reading");
-        City Allentown = new City("Allentown");
-        City Stroudsburg = new City("Stroudsburg");
-        City AtlanticCity = new City("Atlantic City");
-        City Philadelphia = new City("Philadelphia");
-        City Elmira = new City("Elmira");
-        City York = new City("York");
-        City Baltimore = new City("Baltimore");
-        City Gettysburg = new City("Gettysburg");
-        City Chambersburg = new City("Chambersburg");
-        City Cumberland = new City("Cumberland");
-        City Morgantown = new City("Morgantown");
-        City Wheeling = new City("Wheeling");
-        City Johnstown = new City("Johnstown");
-        City Lancaster = new City("Lancaster");
+
+
+
+
 
         Track t1 = new Track(Ontario, Erie, "gray", 3, 2, new ArrayList<String>());
         t1.stockOptions.add("Pennsylvania Railroad");
@@ -704,10 +709,7 @@ public class TrainMaster {
             players.add(new Player());
         }
 
-        for(int i = 0; i < 5; i++)
-        {
-            displayCards.add(trainDeck.pop());
-        }
+        setDisplayCards();
 
         // the tracks for all of the cities will be hard coded here
     }
@@ -725,6 +727,14 @@ public class TrainMaster {
 
         return numPlayers;
 
+    }
+    public void setDisplayCards()
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            emptyDeck();
+            displayCards.add(trainDeck.pop());
+        }
     }
 
     public Player nextPlayer(Player currentPlayer) {
@@ -795,7 +805,8 @@ public class TrainMaster {
         ArrayList<DestinationTickets> newCards = new ArrayList<DestinationTickets>();
 
 
-        for (int i = 0; i < numCards; i++) {
+        for (int i = 0; i < numCards; i++)
+        {
             newCards.add(destDeck.remove(0));
         }
         return newCards;
@@ -804,7 +815,8 @@ public class TrainMaster {
     public ArrayList<TrainTickets> popTrain(int numCards) {
         ArrayList<TrainTickets> newCards = new ArrayList<TrainTickets>();
         for (int i = 0; i < numCards; i++) {
-            newCards.add(trainDeck.remove(0));
+            emptyDeck();
+            newCards.add(trainDeck.pop());
         }
         return newCards;
     }
@@ -942,14 +954,87 @@ public class TrainMaster {
 
         while(displayCards.size() < 5)
         {
-            if(trainDeck.isEmpty())
-            {
-                Collections.shuffle(trainDiscard);
-                trainDeck = trainDiscard;
-                trainDiscard.removeAllElements();
-            }
+            emptyDeck();
             displayCards.add(trainDeck.pop());
         }
     }
 
+    public void threeLoco()
+    {
+        int locomotiveCount = 0;
+        for(int i = 0; i < 5; i++)
+        {
+            if(displayCards.get(i).isLoco)
+            {
+                locomotiveCount++;
+            }
+        }
+        if(locomotiveCount >= 3)
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                trainDiscard.push(displayCards.get(i));
+            }
+            setDisplayCards();
+        }
+    }
+
+    public void emptyDeck()
+    {
+        if(!trainDeck.isEmpty())
+        {
+            return;
+        }
+        else
+        {
+            Collections.shuffle(trainDiscard);
+            trainDeck = trainDiscard;
+            trainDiscard.removeAllElements();
+        }
+    }
+    /**
+     * This method will be in charge of each player drawing a train ticket and will handle certain special cases. Such as if they draw a Locamotive from one of the
+     * face up cards then they will only be allowed to draw one card
+     * @return Returns a boolean value if the drawn card was locamotive or not
+     */
+    public boolean drawTrainTickets(Player p, int index)
+    {
+        if(index <= 4)
+        {
+            // check to see if the one that they picked is a locamotive
+            if(displayCards.get(index).isLoco ) {
+                // add the loco to the player hand
+                // we would not just want to add the first or second in the array list we want to add the one that they click on
+                p.trainTix.add(displayCards.get(index) );
+
+                // remove the selected card from the face up cards
+                displayCards.remove(index);
+
+                emptyDeck();
+                // pop from the deck of train tickets and add it into the empty postion
+                displayCards.add(index, trainDeck.pop());
+                threeLoco();
+
+                return false;
+            }
+            // if they took a face up card but it is not a locamotive
+            else {
+                p.trainTix.add(displayCards.get(index) );
+
+                // remove the selected card from the face up cards
+                displayCards.remove(index);
+                emptyDeck();
+                // pop from the deck of train tickets and add it into the empty postion
+                displayCards.add(index, trainDeck.pop());
+                threeLoco();
+
+                return true;
+            }
+        }
+        else {
+            emptyDeck();
+            p.trainTix.add(trainDeck.pop() );
+            return true;
+        }
+    }
 }
